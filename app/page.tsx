@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { SERVICES } from '@/data/projects';
 import ClientMarquee from '@/components/ClientMarquee';
+import HeroHeadline from '@/components/HeroHeadline';
 
 export default function HomePage() {
   return (
@@ -24,18 +25,13 @@ export default function HomePage() {
         </div>
 
         <div className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-10 w-full py-6 lg:py-16">
-          <div className="max-w-3xl">
+          <div className="text-center">
             <p className="section-eyebrow-light mb-2">Oakland, CA — Bay Area Graphics Production</p>
-            <h1
-              id="hero-heading"
-              className="font-heading font-extrabold text-cream text-4xl sm:text-5xl lg:text-7xl xl:text-8xl leading-none tracking-tighter mb-4"
-            >
-              Graphics built<br />for real spaces.
-            </h1>
-            <p className="text-cream/70 text-base sm:text-lg leading-relaxed max-w-xl mb-6">
+            <HeroHeadline />
+            <p className="text-cream/70 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-6">
               7th Creation Studio designs, produces, and installs large-format graphics for exhibitions, events, retail, vehicles, and branded environments.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="/quote"
                 className="inline-flex items-center px-7 py-4 bg-blue text-cream font-bold text-sm uppercase tracking-widest hover:bg-lightblue hover:text-dark transition-colors focus-ring"
