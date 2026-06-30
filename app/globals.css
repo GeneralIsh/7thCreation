@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream text-dark antialiased;
+    font-family: var(--font-montserrat), system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-archivo), var(--font-montserrat), system-ui, sans-serif;
+    @apply font-extrabold leading-tight tracking-tighter;
+  }
+
+  img {
+    @apply block max-w-full;
+  }
+
+  button {
+    @apply font-sans;
+  }
+
+  address {
+    @apply not-italic;
+  }
+}
+
+@layer components {
+  /* Shared placeholder style for image areas without real photos */
+  .img-placeholder {
+    @apply bg-blue relative overflow-hidden;
+  }
+
+  .img-placeholder::after {
+    content: '';
+    @apply absolute inset-0;
+    background-image: repeating-linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.04) 0px,
+      rgba(255, 255, 255, 0.04) 2px,
+      transparent 2px,
+      transparent 16px
+    );
+  }
+
+  /* Studio/light placeholder (cream sections) */
+  .img-placeholder-light {
+    @apply bg-silver relative overflow-hidden;
+  }
+
+  .img-placeholder-light::after {
+    content: '';
+    @apply absolute inset-0;
+    background-image: repeating-linear-gradient(
+      105deg,
+      rgba(9, 15, 20, 0.05) 0px,
+      rgba(9, 15, 20, 0.05) 2px,
+      transparent 2px,
+      transparent 14px
+    );
+  }
+
+  .section-eyebrow {
+    @apply text-blue text-xs font-bold uppercase tracking-[0.08em] mb-2.5;
+  }
+
+  .section-eyebrow-light {
+    @apply text-lightblue text-xs font-bold uppercase tracking-[0.08em] mb-2.5;
+  }
+
+  /* Focus ring consistent with brand */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lightblue focus-visible:ring-offset-1;
+  }
+}
+
+/* Skip nav */
+.skip-link {
+  @apply absolute -top-full left-4 z-[999] px-4 py-2 bg-navy text-cream text-sm font-semibold;
+}
+
+.skip-link:focus {
+  @apply top-3;
+}
+
+/* Grid gap-line technique: set gap to 1.5px, bg-silver bleeds through as dividers */
+.gap-line {
+  gap: 1.5px;
+  background-color: theme('colors.silver');
+}
+
+.gap-line-dark {
+  gap: 1px;
+  background-color: theme('colors.charcoal');
+}
+
+/* Work tile: tile background slides on group hover */
+.work-tile-bg {
+  transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .work-tile-bg {
+  transform: scale(1.06);
+}
