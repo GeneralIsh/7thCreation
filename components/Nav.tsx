@@ -10,7 +10,7 @@ export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 16);
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -25,24 +25,19 @@ export default function Nav() {
   }, [open]);
 
   const links = [
-    { href: '/work', label: 'Work' },
+    { href: '/work',     label: 'Work' },
     { href: '/services', label: 'Services' },
-    { href: '/studio', label: 'Studio' },
-    { href: '/quote', label: 'Quote' },
+    { href: '/studio',   label: 'Studio' },
+    { href: '/quote',    label: 'Quote' },
   ];
 
   return (
     <>
-      <a
-        className="skip-link"
-        href="#main-content"
-      >
-        Skip to main content
-      </a>
+      <a className="skip-link" href="#main-content">Skip to main content</a>
 
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-dark/95 backdrop-blur-sm shadow-md' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 bg-dark transition-shadow duration-300 ${
+          scrolled ? 'shadow-[0_1px_0_rgba(255,255,255,0.06)]' : ''
         }`}
         role="banner"
       >
@@ -53,7 +48,7 @@ export default function Nav() {
             aria-label="7th Creation Studio — Home"
             className="flex items-baseline gap-1 focus-ring rounded-sm"
           >
-            {/* REPLACE: swap spans with <img src="/images/logo/7th-creation-logo-light.png" alt="7th Creation Studio" width="160" height="40" /> */}
+            {/* REPLACE: <img src="/images/logo/7th-creation-logo-light.png" alt="7th Creation Studio" width="160" height="40" /> */}
             <span className="font-heading font-extrabold text-xl text-lightblue tracking-tighter">
               7th<span className="text-cream">Creation</span>
             </span>
@@ -66,7 +61,7 @@ export default function Nav() {
                 key={href}
                 href={href}
                 className={`text-sm font-semibold uppercase tracking-widest transition-colors focus-ring rounded-sm ${
-                  pathname === href
+                  pathname === href || pathname.startsWith(href + '/')
                     ? 'text-lightblue'
                     : 'text-coolgray hover:text-cream'
                 }`}
