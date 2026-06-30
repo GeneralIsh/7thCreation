@@ -25,6 +25,7 @@ export default function Nav() {
   }, [open]);
 
   const links = [
+    { href: '/',         label: 'Home' },
     { href: '/work',     label: 'Work' },
     { href: '/services', label: 'Services' },
     { href: '/studio',   label: 'Studio' },

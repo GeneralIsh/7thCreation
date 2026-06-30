@@ -7,7 +7,7 @@ export default function HomePage() {
     <>
       {/* ── HERO ── */}
       <section
-        className="relative min-h-[88vh] bg-dark pt-16 flex flex-col justify-center"
+        className="relative min-h-[75vh] bg-dark pt-16 flex flex-col justify-center"
         aria-labelledby="hero-heading"
       >
         <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -16,16 +16,16 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-dark/70 via-dark/30 to-dark/80" />
         </div>
 
-        <div className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-10 w-full py-16 lg:py-20">
+        <div className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-10 w-full py-10 lg:py-16">
           <div className="max-w-3xl">
-            <p className="section-eyebrow-light mb-5">Oakland, CA — Bay Area Graphics Production</p>
+            <p className="section-eyebrow-light mb-3">Oakland, CA — Bay Area Graphics Production</p>
             <h1
               id="hero-heading"
-              className="font-heading font-extrabold text-cream text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-none tracking-tighter mb-7"
+              className="font-heading font-extrabold text-cream text-4xl sm:text-5xl lg:text-7xl xl:text-8xl leading-none tracking-tighter mb-5"
             >
               Graphics built<br />for real spaces.
             </h1>
-            <p className="text-cream/70 text-lg sm:text-xl leading-relaxed max-w-xl mb-10">
+            <p className="text-cream/70 text-base sm:text-lg leading-relaxed max-w-xl mb-7">
               7th Creation Studio designs, produces, and installs large-format graphics for exhibitions, events, retail, vehicles, and branded environments.
             </p>
             <div className="flex flex-wrap gap-4">
