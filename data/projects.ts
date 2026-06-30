@@ -115,16 +115,16 @@ export const FILTER_TAGS = [
   { value: 'apparel',     label: 'Apparel' },
 ] as const;
 
-export const CLIENTS: { name: string; logo: string; darkBg?: boolean }[] = [
-  { name: 'Gap Inc.',                   logo: '/images/clients/gap.svg' },
-  { name: 'Eventbrite',                 logo: '/images/clients/eventbrite.webp' },
-  { name: 'PrizePicks',                 logo: '/images/clients/prizepicks.png', darkBg: true },
-  { name: 'Dropworks',                  logo: '/images/clients/dropworks.webp' },
-  { name: 'Sparks',                     logo: '/images/clients/sparks.webp' },
-  { name: 'Marriott Oakland City Center', logo: '/images/clients/marriott.png' },
-  { name: 'ImageTech',                  logo: '/images/clients/imagetech.webp' },
-  { name: 'The City Eats',              logo: '/images/clients/city-eats.webp' },
-  { name: 'Chase Center',               logo: '/images/clients/chase-center.webp' },
+export const CLIENTS: { name: string; logo: string; h: number; darkBg?: boolean }[] = [
+  { name: 'Gap Inc.',                     logo: '/images/clients/gap.svg',           h: 26 },
+  { name: 'Eventbrite',                   logo: '/images/clients/eventbrite.webp',   h: 34 },
+  { name: 'PrizePicks',                   logo: '/images/clients/prizepicks.png',    h: 36, darkBg: true },
+  { name: 'Dropworks',                    logo: '/images/clients/dropworks.webp',    h: 24 },
+  { name: 'Sparks',                       logo: '/images/clients/sparks.webp',       h: 34 },
+  { name: 'Marriott Oakland City Center', logo: '/images/clients/marriott.png',      h: 38 },
+  { name: 'ImageTech',                    logo: '/images/clients/imagetech.webp',    h: 28 },
+  { name: 'The City Eats',               logo: '/images/clients/city-eats.webp',    h: 56 },
+  { name: 'Chase Center',                 logo: '/images/clients/chase-center.webp', h: 30 },
 ];
 
 export const SERVICES = [
