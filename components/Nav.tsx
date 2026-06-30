@@ -28,7 +28,6 @@ export default function Nav() {
     { href: '/work',     label: 'Work' },
     { href: '/services', label: 'Services' },
     { href: '/studio',   label: 'Studio' },
-    { href: '/quote',    label: 'Quote' },
   ];
 
   return (
