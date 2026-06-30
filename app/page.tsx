@@ -1,46 +1,13 @@
 import Link from 'next/link';
 import { SERVICES } from '@/data/projects';
 import ClientMarquee from '@/components/ClientMarquee';
-import HeroHeadline from '@/components/HeroHeadline';
-import HeroVideo from '@/components/HeroVideo';
+import HeroSection from '@/components/HeroSection';
 
 export default function HomePage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section
-        className="relative min-h-[58vh] lg:min-h-[75vh] bg-dark pt-16 flex flex-col justify-center"
-        aria-labelledby="hero-heading"
-      >
-        <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-          <HeroVideo />
-          <div className="absolute inset-0 bg-gradient-to-b from-dark/80 via-dark/50 to-dark/90" />
-        </div>
-
-        <div className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-10 w-full py-6 lg:py-16">
-          <div className="text-center">
-            <p className="section-eyebrow-light mb-2">Oakland, CA — Bay Area Graphics Production</p>
-            <HeroHeadline />
-            <p className="text-cream/70 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-6">
-              7th Creation Studio designs, produces, and installs large-format graphics for exhibitions, events, retail, vehicles, and branded environments.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link
-                href="/quote"
-                className="inline-flex items-center px-7 py-4 bg-blue text-cream font-bold text-sm uppercase tracking-widest hover:bg-lightblue hover:text-dark transition-colors focus-ring"
-              >
-                Request a Quote
-              </Link>
-              <Link
-                href="/work"
-                className="inline-flex items-center px-7 py-4 border border-cream/25 text-cream font-bold text-sm uppercase tracking-widest hover:border-cream/60 hover:bg-cream/5 transition-colors focus-ring"
-              >
-                See Our Work
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* ── SERVICES STRIP ── */}
       <section className="bg-dark border-t border-charcoal py-20 lg:py-24" aria-labelledby="services-intro-heading">
