@@ -115,18 +115,16 @@ export const FILTER_TAGS = [
   { value: 'apparel',     label: 'Apparel' },
 ] as const;
 
-export const CLIENTS = [
-  'Gap Inc.',
-  'Eventbrite',
-  'PrizePicks',
-  'Dropworks',
-  'Sparks',
-  'Marriott Oakland City Center',
-  'ImageTech',
-  'The City Eats',
-  'MS-Joy African Market',
-  'Ghost Town Genetics',
-  'Chase Center',
+export const CLIENTS: { name: string; logo: string; darkBg?: boolean }[] = [
+  { name: 'Gap Inc.',                   logo: '/images/clients/gap.svg' },
+  { name: 'Eventbrite',                 logo: '/images/clients/eventbrite.webp' },
+  { name: 'PrizePicks',                 logo: '/images/clients/prizepicks.png', darkBg: true },
+  { name: 'Dropworks',                  logo: '/images/clients/dropworks.webp' },
+  { name: 'Sparks',                     logo: '/images/clients/sparks.webp' },
+  { name: 'Marriott Oakland City Center', logo: '/images/clients/marriott.png' },
+  { name: 'ImageTech',                  logo: '/images/clients/imagetech.webp' },
+  { name: 'The City Eats',              logo: '/images/clients/city-eats.webp' },
+  { name: 'Chase Center',               logo: '/images/clients/chase-center.webp' },
 ];
 
 export const SERVICES = [

@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { CLIENTS, SERVICES } from '@/data/projects';
+import { SERVICES } from '@/data/projects';
+import ClientMarquee from '@/components/ClientMarquee';
 
 export default function HomePage() {
   return (
@@ -82,39 +83,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CLIENTS ── */}
-      <section className="bg-dark border-t border-charcoal py-16 lg:py-20" aria-labelledby="clients-heading">
-        <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
-
-          <p className="section-eyebrow-light text-center mb-10">Clients &amp; Collaborators</p>
-
-          {/* Logo grid — swap <span> for <img> per client when logos are ready */}
-          <ul
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3"
-            role="list"
-            aria-label="Clients and collaborators"
-          >
-            {CLIENTS.map((client) => (
-              <li
-                key={client}
-                className="border border-white/8 flex items-center justify-center px-4 py-6 min-h-[72px]"
-              >
-                {/*
-                  REPLACE with logo:
-                  <Image src={`/images/clients/${slug}.svg`} alt={client} width={120} height={40} className="opacity-60 hover:opacity-100 transition-opacity" />
-                */}
-                <span className="text-cream/40 text-xs font-bold uppercase tracking-widest text-center leading-snug">
-                  {client}
-                </span>
-              </li>
-            ))}
-          </ul>
-
-          <p className="text-xs text-cream/25 text-center mt-8 max-w-xl mx-auto">
-            Some work may be completed directly, through partners, or as part of larger event and production teams.
-          </p>
-
-        </div>
-      </section>
+      <ClientMarquee />
 
       {/* ── CTA BAND ── */}
       <section className="bg-navy py-20 lg:py-28" aria-labelledby="cta-heading">

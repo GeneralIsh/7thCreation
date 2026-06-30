@@ -108,3 +108,36 @@
 .group:hover .work-tile-bg {
   transform: scale(1.06);
 }
+
+/* Client logo marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  animation: marquee 38s linear infinite;
+  will-change: transform;
+}
+
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* White-bg logos → grayscale+invert = white silhouettes on dark bg */
+.logo-invert {
+  filter: grayscale(1) contrast(1.3) invert(1);
+  opacity: 0.55;
+  transition: opacity 250ms;
+}
+
+/* Dark-bg logos (e.g. PrizePicks): no invert, just opacity */
+.logo-dark {
+  opacity: 0.75;
+  transition: opacity 250ms;
+}
+
+.marquee-wrap:hover .logo-invert,
+.marquee-wrap:hover .logo-dark {
+  opacity: 0.9;
+}
