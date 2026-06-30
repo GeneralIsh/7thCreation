@@ -51,7 +51,11 @@ export default function ClientMarquee() {
         ))}
       </ul>
 
-      <p className="text-xs text-cream/30 text-center mt-8 px-6">
+      <p className="text-xs text-cream/20 text-center mt-8 max-w-xl mx-auto px-6">
+        Some work may be completed directly, through partners, or as part of larger event and production teams.
+      </p>
+
+      <p className="text-xs text-cream/30 text-center mt-3 px-6">
         <a
           href="https://interiorbond.com/"
           target="_blank"
