@@ -11,9 +11,16 @@ export default function HomePage() {
         aria-labelledby="hero-heading"
       >
         <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-          {/* REPLACE: <Image src="/images/hero/hero-main.jpg" alt="" fill className="object-cover opacity-55" priority /> */}
-          <div className="img-placeholder w-full h-full" />
-          <div className="absolute inset-0 bg-gradient-to-b from-dark/70 via-dark/30 to-dark/80" />
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover opacity-20"
+          >
+            <source src="/videos/hero-bg.mov" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-dark/80 via-dark/50 to-dark/90" />
         </div>
 
         <div className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-10 w-full py-10 lg:py-16">
