@@ -79,8 +79,15 @@ export default function Footer() {
           <p className="text-xs text-gray">
             &copy; {year} 7th Creation Studio. All rights reserved.
           </p>
-          <p className="text-xs text-gray max-w-md">
-            Some work may be completed directly, through partners, or as part of larger event and production teams.
+          <p className="text-xs text-gray">
+            <a
+              href="https://interiorbond.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-cream transition-colors underline underline-offset-2"
+            >
+              An Interior Bond Company
+            </a>
           </p>
         </div>
 
