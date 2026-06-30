@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { SERVICES } from '@/data/projects';
 import ClientMarquee from '@/components/ClientMarquee';
 import HeroHeadline from '@/components/HeroHeadline';
+import HeroVideo from '@/components/HeroVideo';
 
 export default function HomePage() {
   return (
@@ -12,15 +13,7 @@ export default function HomePage() {
         aria-labelledby="hero-heading"
       >
         <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-30"
-          >
-            <source src="/videos/hero-bg.mov" type="video/mp4" />
-          </video>
+          <HeroVideo />
           <div className="absolute inset-0 bg-gradient-to-b from-dark/80 via-dark/50 to-dark/90" />
         </div>
 
