@@ -52,7 +52,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start">
 
             <div>
-              <p className="section-eyebrow-light">What We Do</p>
+              <p className="section-eyebrow-light">Conceptualize. Create. Complete.</p>
               <h2
                 id="services-intro-heading"
                 className="font-heading font-extrabold text-cream text-3xl lg:text-4xl tracking-tighter mb-4"
