@@ -4,11 +4,11 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Studio',
   description:
-    '7th Creation Studio is a Bay Area wide-format graphics production studio in Oakland, CA. We produce, finish, and install graphics for exhibitions, events, retail, and branded environments.',
+    '7th Creation Studio is a Bay Area large-format graphics production studio in Oakland, CA. We produce, finish, and install graphics for exhibitions, events, retail, and branded environments.',
 };
 
 const capabilities = [
-  { label: 'Wide-Format Print', detail: 'Banners, decals, rigid panels, fabric, specialty substrates' },
+  { label: 'Large-Format Print', detail: 'Banners, decals, rigid panels, fabric, specialty substrates' },
   { label: 'Vehicle Graphics', detail: 'Full wraps, partial wraps, fleet decals, transit layouts' },
   { label: 'Environmental Graphics', detail: 'Wall graphics, window vinyl, floor decals, interior/exterior' },
   { label: 'Exhibition Displays', detail: 'Trade show, event displays, sponsor walls, branded arches' },
@@ -19,7 +19,7 @@ const capabilities = [
 const fieldItems = [
   { stat: 'Bay Area', label: 'Based in Oakland, CA' },
   { stat: 'Bay Area +', label: 'Regional and travel installs' },
-  { stat: '7 categories', label: 'Of wide-format production' },
+  { stat: '7 categories', label: 'Of large-format production' },
   { stat: 'Turnkey', label: 'From files to finished install' },
 ];
 
@@ -41,7 +41,7 @@ export default function StudioPage() {
                 Production built<br />for the field.
               </h1>
               <p className="text-coolgray text-base leading-relaxed mb-5">
-                7th Creation Studio is a Bay Area wide-format graphics production studio based at 95 Linden St, Oakland, CA. We work with brands, agencies, event teams, and production companies to produce and install graphics that hold up in real spaces.
+                7th Creation Studio is a Bay Area large-format graphics production studio based at 95 Linden St, Oakland, CA. We work with brands, agencies, event teams, and production companies to produce and install graphics that hold up in real spaces.
               </p>
               <p className="text-coolgray text-base leading-relaxed mb-5">
                 From large-format print runs to complex multi-day installs, we operate on tight timelines and deliver clean results. Our team has worked at arenas, hospitality venues, creator spaces, retail storefronts, and outdoor events across the Bay Area and beyond.

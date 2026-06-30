@@ -21,8 +21,11 @@ export default function Footer() {
               </span>
               <span className="text-xs font-semibold text-coolgray uppercase tracking-widest ml-1">Studio</span>
             </Link>
-            <p className="text-sm text-coolgray leading-relaxed max-w-xs">
-              Wide-format graphics production studio in Oakland, CA. We design, produce, and install graphics built for real spaces.
+            <p className="text-sm text-coolgray leading-relaxed max-w-xs mb-4">
+              Large-format graphics production studio in Oakland, CA. We design, produce, and install graphics built for real spaces.
+            </p>
+            <p className="text-xs font-bold text-lightblue/60 uppercase tracking-widest">
+              Conceptualize. Create. Complete.
             </p>
           </div>
 
@@ -30,6 +33,7 @@ export default function Footer() {
             <p className="section-eyebrow-light mb-4">Navigate</p>
             <ul className="flex flex-col gap-3" role="list">
               {[
+                { href: '/', label: 'Home' },
                 { href: '/work', label: 'Work' },
                 { href: '/services', label: 'Services' },
                 { href: '/studio', label: 'Studio' },
@@ -70,6 +74,16 @@ export default function Footer() {
                 95 Linden St<br />
                 Oakland, CA 94607
               </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/7thcreationstudio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cream transition-colors focus-ring rounded-sm"
+                >
+                  Instagram
+                </a>
+              </li>
             </ul>
           </address>
 
@@ -84,7 +98,7 @@ export default function Footer() {
               href="https://interiorbond.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-cream transition-colors underline underline-offset-2"
+              className="hover:text-cream transition-colors"
             >
               An Interior Bond Company
             </a>

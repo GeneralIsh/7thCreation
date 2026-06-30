@@ -44,7 +44,7 @@ export const projects: Project[] = [
     tag: 'exhibition',
     title: 'Hotel Lobby Welcome Graphics',
     scope: 'Large-format balcony graphics produced and installed for a hospitality event environment.',
-    production: 'Wide-format print, panel mounting, and on-site install at venue.',
+    production: 'Large-format print, panel mounting, and on-site install at venue.',
     images: [
       '/images/work/hotel-lobby.jpg',
       '/images/work/hotel-lobby-1.jpg',
@@ -83,7 +83,7 @@ export const projects: Project[] = [
     tag: 'print',
     title: 'Label Production',
     scope: 'High-volume printed labels with consistent color and production-ready finishing.',
-    production: 'Wide-format print, color-matched output, and finishing for product application.',
+    production: 'Large-format print, color-matched output, and finishing for product application.',
     images: [
       '/images/work/label-production.jpg',
       '/images/work/label-production-1.jpg',
@@ -137,7 +137,7 @@ export const SERVICES = [
     description: 'Wall graphics, window vinyl, frosted graphics, floor decals, office branding, venue graphics, and branded interior/exterior applications.',
   },
   {
-    title: 'Wide-Format Print Production',
+    title: 'Large-Format Print Production',
     description: 'Banners, posters, rigid signs, mounted graphics, decals, labels, gatorboard, foamcore, PVC, acrylic, fabric, and specialty substrates.',
   },
   {

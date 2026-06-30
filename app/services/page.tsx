@@ -5,7 +5,7 @@ import { SERVICES } from '@/data/projects';
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    '7th Creation Studio offers exhibition & experiential display graphics, environmental graphics, wide-format print production, retail & storefront graphics, vehicle wraps, apparel & DTF, and installation services.',
+    '7th Creation Studio offers exhibition & experiential display graphics, environmental graphics, large-format print production, retail & storefront graphics, vehicle wraps, apparel & DTF, and installation services.',
 };
 
 export default function ServicesPage() {

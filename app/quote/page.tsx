@@ -5,7 +5,7 @@ import { useState } from 'react';
 const SERVICE_OPTIONS = [
   'Exhibition / Event Graphics',
   'Environmental Graphics',
-  'Wide-Format Print Production',
+  'Large-Format Print Production',
   'Retail / Storefront Graphics',
   'Vehicle / Fleet Graphics',
   'Apparel / DTF / Custom Print',

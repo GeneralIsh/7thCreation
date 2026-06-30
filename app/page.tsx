@@ -26,7 +26,7 @@ export default function HomePage() {
               Graphics built<br />for real spaces.
             </h1>
             <p className="text-cream/70 text-lg sm:text-xl leading-relaxed max-w-xl mb-10">
-              7th Creation Studio designs, produces, and installs wide-format graphics for exhibitions, events, retail, vehicles, and branded environments.
+              7th Creation Studio designs, produces, and installs large-format graphics for exhibitions, events, retail, vehicles, and branded environments.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
