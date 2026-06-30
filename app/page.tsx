@@ -7,7 +7,7 @@ export default function HomePage() {
     <>
       {/* ── HERO ── */}
       <section
-        className="relative min-h-[75vh] bg-dark pt-16 flex flex-col justify-center"
+        className="relative min-h-[58vh] lg:min-h-[75vh] bg-dark pt-16 flex flex-col justify-center"
         aria-labelledby="hero-heading"
       >
         <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
@@ -16,23 +16,23 @@ export default function HomePage() {
             muted
             loop
             playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-20"
+            className="absolute inset-0 w-full h-full object-cover opacity-30"
           >
             <source src="/videos/hero-bg.mov" type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-dark/80 via-dark/50 to-dark/90" />
         </div>
 
-        <div className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-10 w-full py-10 lg:py-16">
+        <div className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-10 w-full py-6 lg:py-16">
           <div className="max-w-3xl">
-            <p className="section-eyebrow-light mb-3">Oakland, CA — Bay Area Graphics Production</p>
+            <p className="section-eyebrow-light mb-2">Oakland, CA — Bay Area Graphics Production</p>
             <h1
               id="hero-heading"
-              className="font-heading font-extrabold text-cream text-4xl sm:text-5xl lg:text-7xl xl:text-8xl leading-none tracking-tighter mb-5"
+              className="font-heading font-extrabold text-cream text-4xl sm:text-5xl lg:text-7xl xl:text-8xl leading-none tracking-tighter mb-4"
             >
               Graphics built<br />for real spaces.
             </h1>
-            <p className="text-cream/70 text-base sm:text-lg leading-relaxed max-w-xl mb-7">
+            <p className="text-cream/70 text-base sm:text-lg leading-relaxed max-w-xl mb-6">
               7th Creation Studio designs, produces, and installs large-format graphics for exhibitions, events, retail, vehicles, and branded environments.
             </p>
             <div className="flex flex-wrap gap-4">
