@@ -124,7 +124,6 @@ export const CLIENTS = [
   'Marriott Oakland City Center',
   'ImageTech',
   'The City Eats',
-  'Creator House',
   'MS-Joy African Market',
   'Ghost Town Genetics',
   'Chase Center',
