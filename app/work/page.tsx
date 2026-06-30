@@ -23,11 +23,18 @@ export default function WorkPage() {
       </section>
 
       {/* ── Grid ── */}
-      <section className="pb-24 lg:pb-32">
+      <section className="pb-16 lg:pb-20">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
           <WorkGrid projects={projects} showFilters />
         </div>
       </section>
+
+      {/* ── Disclaimer ── */}
+      <div className="max-w-[1320px] mx-auto px-6 lg:px-10 pb-24 lg:pb-32">
+        <p className="text-xs text-cream/20">
+          Some work may be completed directly, through partners, or as part of larger event and production teams.
+        </p>
+      </div>
 
     </div>
   );
