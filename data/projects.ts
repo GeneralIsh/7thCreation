@@ -120,10 +120,10 @@ export const CLIENTS: { name: string; logo: string; h: number; darkBg?: boolean 
   { name: 'Eventbrite',                   logo: '/images/clients/eventbrite.webp',   h: 26 },
   { name: 'PrizePicks',                   logo: '/images/clients/prizepicks.png',    h: 26, darkBg: true },
   { name: 'Dropworks',                    logo: '/images/clients/dropworks.webp',    h: 14 },
-  { name: 'Sparks',                       logo: '/images/clients/sparks.webp',       h: 40 },
+  { name: 'Sparks',                       logo: '/images/clients/sparks.webp',       h: 50 },
   { name: 'Marriott Oakland City Center', logo: '/images/clients/marriott.png',      h: 30 },
   { name: 'ImageTech',                    logo: '/images/clients/imagetech.webp',    h: 30 },
-  { name: 'The City Eats',               logo: '/images/clients/city-eats.webp',    h: 64 },
+  { name: 'The City Eats',               logo: '/images/clients/city-eats.webp',    h: 76 },
   { name: 'Chase Center',                 logo: '/images/clients/chase-center.webp', h: 16 },
 ];
 
