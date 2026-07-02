@@ -8,9 +8,10 @@ import WorkTile from './WorkTile';
 interface WorkGridProps {
   projects: Project[];
   showFilters?: boolean;
+  clickable?: boolean;
 }
 
-export default function WorkGrid({ projects, showFilters = false }: WorkGridProps) {
+export default function WorkGrid({ projects, showFilters = false, clickable = true }: WorkGridProps) {
   const [activeTag, setActiveTag] = useState<string>('all');
 
   const filtered = activeTag === 'all'
@@ -55,7 +56,7 @@ export default function WorkGrid({ projects, showFilters = false }: WorkGridProp
       >
         {filtered.map((project, i) => (
           <div key={project.slug} role="listitem">
-            <WorkTile project={project} priority={i < 3} />
+            <WorkTile project={project} priority={i < 3} clickable={clickable} />
           </div>
         ))}
       </div>

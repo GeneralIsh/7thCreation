@@ -25,7 +25,7 @@ export default function WorkPage() {
       {/* ── Grid ── */}
       <section className="pb-16 lg:pb-20">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
-          <WorkGrid projects={projects} showFilters />
+          <WorkGrid projects={projects} showFilters clickable={false} />
         </div>
       </section>
 
