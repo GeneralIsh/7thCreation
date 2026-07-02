@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
 import { projects } from '@/data/projects';
+import ProjectImageGallery from '@/components/ProjectImageGallery';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -63,37 +63,8 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         </div>
 
-        {/* Primary image */}
-        <div className="relative aspect-[16/9] w-full overflow-hidden">
-          {primary ? (
-            <Image
-              src={primary}
-              alt={project.title}
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 1320px) 100vw, 1320px"
-            />
-          ) : (
-            <div className="img-placeholder w-full h-full" aria-hidden="true" />
-          )}
-        </div>
-
-        {/* Secondary images */}
-        {rest.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-line-dark bg-charcoal mt-px">
-            {rest.map((src, i) => (
-              <div key={src} className="relative aspect-[4/3]">
-                <Image
-                  src={src}
-                  alt={`${project.title} — detail ${i + 2}`}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            ))}
-          </div>
+        {primary && (
+          <ProjectImageGallery primary={primary} rest={rest} title={project.title} />
         )}
 
         {/* CTA */}

@@ -17,14 +17,10 @@ export default function WorkGrid({ projects, showFilters = false }: WorkGridProp
     ? projects
     : projects.filter((p) => p.tag === activeTag);
 
-  const showFeatured = activeTag === 'all' && filtered.length > 0;
-  const featuredProject = showFeatured ? filtered[0] : null;
-  const gridProjects = showFeatured ? filtered.slice(1) : filtered;
-
   return (
     <div>
       {showFilters && (
-        <div className="relative mb-8 sm:mb-8">
+        <div className="relative mb-8">
           <div
             className="no-scrollbar flex flex-nowrap gap-2 overflow-x-auto pb-1 -mx-6 px-6 sm:mx-0 sm:px-0 sm:flex-wrap"
             role="group"
@@ -52,27 +48,17 @@ export default function WorkGrid({ projects, showFilters = false }: WorkGridProp
         </div>
       )}
 
-      {/* Featured hero tile — full width, above the grid */}
-      {featuredProject && (
-        <div className="mb-px">
-          <WorkTile project={featuredProject} priority featured />
-        </div>
-      )}
-
-      {/* Uniform grid */}
-      {gridProjects.length > 0 && (
-        <div
-          className="grid grid-cols-2 lg:grid-cols-3 gap-line-dark bg-charcoal"
-          role="list"
-          aria-label="Project work tiles"
-        >
-          {gridProjects.map((project, i) => (
-            <div key={project.slug} role="listitem">
-              <WorkTile project={project} priority={!showFeatured && i < 3} />
-            </div>
-          ))}
-        </div>
-      )}
+      <div
+        className="grid grid-cols-2 lg:grid-cols-3 gap-line-dark bg-charcoal"
+        role="list"
+        aria-label="Project work tiles"
+      >
+        {filtered.map((project, i) => (
+          <div key={project.slug} role="listitem">
+            <WorkTile project={project} priority={i < 3} />
+          </div>
+        ))}
+      </div>
 
       {filtered.length === 0 && (
         <p className="text-coolgray text-sm py-16 text-center">
