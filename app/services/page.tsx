@@ -32,7 +32,27 @@ export default function ServicesPage() {
       <section className="bg-cream py-12 lg:py-24" aria-label="Services list">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-line-dark bg-charcoal mb-1.5">
+          {/* Mobile: collapsible accordion */}
+          <div className="sm:hidden divide-y divide-silver border-t border-silver border-b mb-1.5">
+            {[...primary, ...secondary].map((service) => (
+              <details key={service.title} className="group">
+                <summary className="flex items-center justify-between cursor-pointer py-4 list-none gap-3">
+                  <h2 className="font-heading font-extrabold text-dark text-base tracking-tight leading-snug">
+                    {service.title}
+                  </h2>
+                  <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center text-blue font-bold text-xl leading-none transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p className="text-gray text-sm leading-relaxed pb-4 pr-8">
+                  {service.description}
+                </p>
+              </details>
+            ))}
+          </div>
+
+          {/* Tablet/Desktop: grid */}
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-line-dark bg-charcoal mb-1.5">
             {primary.map((service) => (
               <div key={service.title} className="bg-cream p-5 lg:p-10">
                 <h2 className="font-heading font-extrabold text-dark text-xl lg:text-2xl tracking-tight mb-4">
@@ -45,9 +65,9 @@ export default function ServicesPage() {
             ))}
           </div>
 
-          {/* Installation / secondary — full width */}
+          {/* Installation / secondary — full width (tablet+) */}
           {secondary.map((service) => (
-            <div key={service.title} className="bg-charcoal/8 border border-silver p-5 lg:p-10">
+            <div key={service.title} className="hidden sm:block bg-charcoal/8 border border-silver p-5 lg:p-10">
               <h2 className="font-heading font-extrabold text-dark text-xl lg:text-2xl tracking-tight mb-4">
                 {service.title}
               </h2>

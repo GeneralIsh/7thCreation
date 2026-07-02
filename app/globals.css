@@ -144,3 +144,7 @@
 
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Remove default details/summary triangle */
+summary::-webkit-details-marker { display: none; }
+summary { list-style: none; }

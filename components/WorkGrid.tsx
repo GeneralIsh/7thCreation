@@ -20,30 +20,37 @@ export default function WorkGrid({ projects, showFilters = false }: WorkGridProp
   return (
     <div>
       {showFilters && (
-        <div
-          className="no-scrollbar flex flex-nowrap gap-2 mb-8 overflow-x-auto pb-1 -mx-6 px-6 sm:mx-0 sm:px-0 sm:flex-wrap"
-          role="group"
-          aria-label="Filter projects by category"
-        >
-          {FILTER_TAGS.map(({ value, label }) => (
-            <button
-              key={value}
-              onClick={() => setActiveTag(value)}
-              aria-pressed={activeTag === value}
-              className={`px-4 py-2 text-xs font-bold uppercase tracking-widest transition-colors focus-ring ${
-                activeTag === value
-                  ? 'bg-blue text-cream'
-                  : 'bg-charcoal text-coolgray hover:bg-gray hover:text-cream'
-              }`}
-            >
-              {label}
-            </button>
-          ))}
+        <div className="relative mb-8 sm:mb-8">
+          <div
+            className="no-scrollbar flex flex-nowrap gap-2 overflow-x-auto pb-1 -mx-6 px-6 sm:mx-0 sm:px-0 sm:flex-wrap"
+            role="group"
+            aria-label="Filter projects by category"
+          >
+            {FILTER_TAGS.map(({ value, label }) => (
+              <button
+                key={value}
+                onClick={() => setActiveTag(value)}
+                aria-pressed={activeTag === value}
+                className={`flex-shrink-0 px-4 py-2 text-xs font-bold uppercase tracking-widest transition-colors focus-ring ${
+                  activeTag === value
+                    ? 'bg-blue text-cream'
+                    : 'bg-charcoal text-coolgray hover:bg-gray hover:text-cream'
+                }`}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          {/* Scroll hint gradient — mobile only */}
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-dark to-transparent sm:hidden"
+            aria-hidden="true"
+          />
         </div>
       )}
 
       <div
-        className="grid grid-cols-2 lg:grid-cols-3 gap-line bg-silver"
+        className="grid grid-cols-2 lg:grid-cols-3 gap-line-dark bg-charcoal"
         role="list"
         aria-label="Project work tiles"
       >
