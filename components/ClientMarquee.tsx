@@ -1,8 +1,8 @@
 import { CLIENTS } from '@/data/projects';
 
 export default function ClientMarquee() {
-  // Triple for seamless loop with dense fill
-  const items = [...CLIENTS, ...CLIENTS, ...CLIENTS];
+  // Duplicate for seamless loop — 2 copies + -50% is pixel-exact
+  const items = [...CLIENTS, ...CLIENTS];
 
   return (
     <section
