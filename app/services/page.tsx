@@ -16,13 +16,13 @@ export default function ServicesPage() {
     <div className="min-h-screen">
 
       {/* ── Page header (dark, consistent with other pages) ── */}
-      <section className="bg-dark pt-24 pb-10 lg:pt-40 lg:pb-20">
+      <section className="bg-dark pt-28 pb-14 lg:pt-40 lg:pb-20">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
-          <p className="section-eyebrow-light">What We Do</p>
-          <h1 className="font-heading font-extrabold text-cream text-5xl lg:text-6xl tracking-tighter mb-6">
+          <p className="section-eyebrow-light mb-4">What We Do</p>
+          <h1 className="font-heading font-extrabold text-cream text-4xl sm:text-5xl lg:text-6xl tracking-tighter mb-5">
             From files to<br />finished install.
           </h1>
-          <p className="text-coolgray text-lg max-w-xl leading-relaxed">
+          <p className="text-coolgray text-base max-w-xl leading-relaxed">
             End-to-end graphics production — design, print, and install. We work with agencies, brands, event teams, and production houses across the Bay Area.
           </p>
         </div>

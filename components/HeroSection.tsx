@@ -13,7 +13,7 @@ const MIN_INTERVAL = 3500;
 const FALLBACK_INTERVAL = 10_000;
 
 const hCls =
-  'font-heading font-extrabold leading-none tracking-tighter text-4xl sm:text-5xl lg:text-7xl xl:text-8xl absolute inset-x-0 top-0 transition-[opacity,transform] duration-[1100ms] ease-[cubic-bezier(0.4,0,0.2,1)]';
+  'font-heading font-extrabold leading-none tracking-tighter text-[2.75rem] sm:text-5xl lg:text-7xl xl:text-8xl absolute inset-x-0 top-0 transition-[opacity,transform] duration-[1100ms] ease-[cubic-bezier(0.4,0,0.2,1)]';
 
 export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -77,7 +77,7 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-[58vh] lg:min-h-[75vh] bg-dark pt-16 flex flex-col justify-center"
+      className="relative min-h-[80vh] lg:min-h-[82vh] bg-dark pt-16 flex flex-col justify-center"
       aria-labelledby="hero-heading"
     >
       {/* Hidden canvas — only used for pixel sampling, never rendered */}
@@ -91,19 +91,19 @@ export default function HeroSection() {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-30"
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
         >
           <source src="/videos/hero-bg.mov" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-dark/80 via-dark/50 to-dark/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark/70 via-dark/40 to-dark/85" />
       </div>
 
       {/* Foreground content */}
-      <div className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-10 w-full py-6 lg:py-16">
+      <div className="relative z-10 max-w-[1320px] mx-auto px-6 lg:px-10 w-full py-14 lg:py-20">
         <div className="text-center">
-          <p className="section-eyebrow-light mb-2">Oakland, CA — Bay Area Graphics Production</p>
+          <p className="section-eyebrow-light mb-5">Oakland, CA — Bay Area Graphics Production</p>
 
-          <div className="relative mb-6 h-24 sm:h-28 lg:h-40 xl:h-52">
+          <div className="relative mb-8 h-[7.5rem] sm:h-36 lg:h-44 xl:h-56">
             <h1
               id="hero-heading"
               className={`${hCls} text-cream ${
@@ -125,21 +125,21 @@ export default function HeroSection() {
             </h2>
           </div>
 
-          <p className="text-cream/70 text-base sm:text-lg leading-relaxed max-w-xl mx-auto mb-6">
+          <p className="text-cream/70 text-sm sm:text-base leading-relaxed max-w-lg mx-auto mb-10">
             7th Creation Studio designs, produces, and installs large-format graphics for exhibitions,
             events, retail, vehicles, and branded environments.
           </p>
 
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <Link
               href="/quote"
-              className="inline-flex items-center px-7 py-4 bg-blue text-cream font-bold text-sm uppercase tracking-widest hover:bg-lightblue hover:text-dark transition-colors focus-ring"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-blue text-cream font-bold text-sm uppercase tracking-widest hover:bg-lightblue hover:text-dark transition-colors focus-ring"
             >
               Request a Quote
             </Link>
             <Link
               href="/work"
-              className="inline-flex items-center px-7 py-4 border border-cream/25 text-cream font-bold text-sm uppercase tracking-widest hover:border-cream/60 hover:bg-cream/5 transition-colors focus-ring"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 border border-cream/30 text-cream font-bold text-sm uppercase tracking-widest hover:border-cream/60 hover:bg-cream/5 transition-colors focus-ring"
             >
               See Our Work
             </Link>

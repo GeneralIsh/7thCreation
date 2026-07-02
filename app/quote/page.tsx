@@ -80,13 +80,13 @@ export default function QuotePage() {
     <div className="min-h-screen">
 
       {/* ── Page header (dark, consistent) ── */}
-      <section className="bg-dark pt-24 pb-10 lg:pt-40 lg:pb-20">
+      <section className="bg-dark pt-28 pb-14 lg:pt-40 lg:pb-20">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
-          <p className="section-eyebrow-light">Get a Quote</p>
-          <h1 className="font-heading font-extrabold text-cream text-5xl lg:text-6xl tracking-tighter mb-4">
+          <p className="section-eyebrow-light mb-4">Get a Quote</p>
+          <h1 className="font-heading font-extrabold text-cream text-4xl sm:text-5xl lg:text-6xl tracking-tighter mb-4">
             Have a project<br />coming up?
           </h1>
-          <p className="text-coolgray text-lg max-w-lg leading-relaxed">
+          <p className="text-coolgray text-base max-w-lg leading-relaxed">
             Fill in the form below and we'll get back to you with pricing and next steps.
           </p>
         </div>

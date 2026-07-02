@@ -30,9 +30,9 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-7">
+            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-0 sm:gap-y-7">
               {SERVICES.filter((s) => !s.secondary).slice(0, 6).map((service) => (
-                <div key={service.title}>
+                <div key={service.title} className="border-t border-charcoal py-5 sm:border-none sm:py-0">
                   <h3 className="font-heading font-extrabold text-cream text-base tracking-tight mb-1.5">
                     {service.title}
                   </h3>

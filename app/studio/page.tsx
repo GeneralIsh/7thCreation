@@ -28,25 +28,25 @@ export default function StudioPage() {
     <div className="min-h-screen pt-16">
 
       {/* ── Studio intro ── */}
-      <section className="bg-dark py-14 lg:py-28" aria-labelledby="studio-heading">
+      <section className="bg-dark pt-12 pb-14 lg:py-28" aria-labelledby="studio-heading">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
             <div>
-              <p className="section-eyebrow-light">The Studio</p>
+              <p className="section-eyebrow-light mb-4">The Studio</p>
               <h1
                 id="studio-heading"
-                className="font-heading font-extrabold text-cream text-5xl lg:text-6xl tracking-tighter mb-6"
+                className="font-heading font-extrabold text-cream text-4xl sm:text-5xl lg:text-6xl tracking-tighter mb-5"
               >
                 Production built<br />for the field.
               </h1>
-              <p className="text-coolgray text-base leading-relaxed mb-5">
+              <p className="text-coolgray text-sm lg:text-base leading-relaxed mb-4">
                 7th Creation Studio is a Bay Area large-format graphics production studio based at 95 Linden St, Oakland, CA. We work with brands, agencies, event teams, and production companies to produce and install graphics that hold up in real spaces.
               </p>
-              <p className="text-coolgray text-base leading-relaxed mb-5">
+              <p className="text-coolgray text-sm lg:text-base leading-relaxed mb-4">
                 From large-format print runs to complex multi-day installs, we operate on tight timelines and deliver clean results. Our team has worked at arenas, hospitality venues, creator spaces, retail storefronts, and outdoor events across the Bay Area and beyond.
               </p>
-              <p className="text-coolgray text-base leading-relaxed">
+              <p className="text-coolgray text-sm lg:text-base leading-relaxed">
                 We're equipped for rush production, high-volume runs, and installations that need to look right on opening day.
               </p>
             </div>
@@ -102,7 +102,7 @@ export default function StudioPage() {
               >
                 We've installed<br />in the field.
               </h2>
-              <p className="text-coolgray text-base leading-relaxed mb-5">
+              <p className="text-coolgray text-sm lg:text-base leading-relaxed mb-4">
                 We don't just print it and ship it. Our team shows up on-site to make sure the install is done right — whether it's a tradeshow booth, a hotel lobby, a storefront takeover, or a large-scale event activation.
               </p>
               <p className="text-coolgray text-base leading-relaxed mb-6">
