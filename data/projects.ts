@@ -66,15 +66,16 @@ export const projects: Project[] = [
   },
   {
     slug: 'vehicle-transit-graphics',
-    category: 'Vehicle & Transit Graphics',
+    category: 'Vehicle & Fleet Graphics',
     tag: 'vehicle',
-    title: 'Vehicle & Transit Graphics',
-    scope: 'Vehicle wraps, transit graphics, and mobile brand visibility.',
-    production: 'Vinyl wrap production, panel layout, and vehicle install.',
+    title: 'Vehicle & Fleet Wraps',
+    scope: 'Full and partial vehicle wraps for transit agencies, commercial fleets, and branded vehicles — from city transit buses to cargo vans and box trucks.',
+    production: 'Large-format vinyl wrap production, panel layout, contour cutting, lamination, and on-vehicle application.',
     images: [
-      '/images/work/vehicle-transit.jpg',
+      '/images/work/vehicle-transit-0.jpg',
       '/images/work/vehicle-transit-1.jpg',
       '/images/work/vehicle-transit-2.jpg',
+      '/images/work/vehicle-transit-3.jpg',
     ],
   },
   {
