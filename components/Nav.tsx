@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
@@ -46,13 +47,20 @@ export default function Nav() {
           <Link
             href="/"
             aria-label="7th Creation Studio — Home"
-            className="flex items-baseline gap-1 focus-ring rounded-sm"
+            className="flex items-center gap-2.5 focus-ring rounded-sm"
           >
-            {/* REPLACE: <img src="/images/logo/7th-creation-logo-light.png" alt="7th Creation Studio" width="160" height="40" /> */}
-            <span className="font-heading font-extrabold text-xl text-lightblue tracking-tighter">
-              7th<span className="text-cream">Creation</span>
+            <Image
+              src="/images/logo/icon-light.png"
+              alt=""
+              width={34}
+              height={30}
+              className="object-contain flex-shrink-0"
+              priority
+            />
+            <span className="font-heading font-extrabold text-xl text-cream tracking-tighter leading-none">
+              7th<span className="text-lightblue">Creation</span>
+              <span className="block text-[9px] font-semibold text-coolgray uppercase tracking-[0.2em] leading-none mt-0.5">Studio</span>
             </span>
-            <span className="text-xs font-semibold text-coolgray uppercase tracking-widest ml-1">Studio</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8" aria-label="Primary navigation">

@@ -27,6 +27,10 @@ export const metadata: Metadata = {
     '7th Creation Studio designs, produces, finishes, and installs large-format graphics for exhibitions, experiential displays, branded environments, events, storefronts, vehicles, and signage. Bay Area graphics production studio, Oakland, CA.',
   robots: 'index, follow',
   alternates: { canonical: 'https://www.7thcreation.com/' },
+  icons: {
+    icon: [{ url: '/favicon-32.png', sizes: '32x32', type: 'image/png' }],
+    apple: { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+  },
   openGraph: {
     type: 'website',
     url: 'https://www.7thcreation.com/',
@@ -34,6 +38,13 @@ export const metadata: Metadata = {
     description:
       'Bay Area graphics production studio. Exhibition graphics, experiential displays, environmental graphics, vehicle wraps, event signage, and installation.',
     siteName: '7th Creation Studio',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: '7th Creation Studio' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '7th Creation Studio — Large-Format Graphics & Installation | Oakland, CA',
+    description: 'Bay Area graphics production studio. Exhibition, environmental, vehicle, retail, and large-format print production.',
+    images: ['/og-image.png'],
   },
 };
 

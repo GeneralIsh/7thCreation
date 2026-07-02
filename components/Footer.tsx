@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -13,13 +14,19 @@ export default function Footer() {
             <Link
               href="/"
               aria-label="7th Creation Studio — Home"
-              className="inline-flex items-baseline gap-1 mb-5 focus-ring rounded-sm"
+              className="inline-flex items-center gap-2.5 mb-5 focus-ring rounded-sm"
             >
-              {/* REPLACE: <img src="/images/logo/7th-creation-logo-light.png" alt="7th Creation Studio" width="140" height="35" /> */}
-              <span className="font-heading font-extrabold text-lg text-lightblue tracking-tighter">
-                7th<span className="text-cream">Creation</span>
+              <Image
+                src="/images/logo/icon-light.png"
+                alt=""
+                width={38}
+                height={34}
+                className="object-contain flex-shrink-0"
+              />
+              <span className="font-heading font-extrabold text-lg text-cream tracking-tighter leading-none">
+                7th<span className="text-lightblue">Creation</span>
+                <span className="block text-[9px] font-semibold text-coolgray uppercase tracking-[0.2em] leading-none mt-0.5">Studio</span>
               </span>
-              <span className="text-xs font-semibold text-coolgray uppercase tracking-widest ml-1">Studio</span>
             </Link>
             <p className="text-sm text-coolgray leading-relaxed max-w-xs mb-4">
               Large-format graphics production studio in Oakland, CA. We design, produce, and install graphics built for real spaces.
