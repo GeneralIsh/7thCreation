@@ -28,12 +28,12 @@ export default function ClientMarquee() {
           aria-hidden="true"
         >
           {items.map((client, i) => (
-            <div key={i} className="flex-shrink-0 flex items-center justify-center h-12">
+            <div key={i} className="flex-shrink-0 flex items-center justify-center h-16">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={client.logo}
                 alt={client.name}
-                style={{ height: client.h, width: 'auto' }}
+                style={{ height: Math.min(client.h, 60), width: 'auto' }}
                 className={`object-contain ${
                   client.darkBg ? 'logo-dark' : 'logo-invert'
                 }`}
