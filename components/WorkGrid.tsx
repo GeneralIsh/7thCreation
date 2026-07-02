@@ -54,11 +54,18 @@ export default function WorkGrid({ projects, showFilters = false }: WorkGridProp
         role="list"
         aria-label="Project work tiles"
       >
-        {filtered.map((project, i) => (
-          <div key={project.slug} role="listitem">
-            <WorkTile project={project} priority={i < 3} />
-          </div>
-        ))}
+        {filtered.map((project, i) => {
+          const isFeatured = i === 0 && activeTag === 'all';
+          return (
+            <div
+              key={project.slug}
+              role="listitem"
+              className={isFeatured ? 'col-span-2 lg:col-span-2' : ''}
+            >
+              <WorkTile project={project} priority={i < 3} featured={isFeatured} />
+            </div>
+          );
+        })}
       </div>
 
       {filtered.length === 0 && (

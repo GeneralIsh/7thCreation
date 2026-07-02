@@ -63,8 +63,8 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         </div>
 
-        {/* Primary image */}
-        <div className="relative aspect-[16/9] w-full mb-3">
+        {/* Primary image — cinematic hero */}
+        <div className="relative w-full overflow-hidden" style={{ aspectRatio: '21/9' }}>
           {primary ? (
             <Image
               src={primary}
@@ -81,7 +81,7 @@ export default async function ProjectPage({ params }: Props) {
 
         {/* Secondary images */}
         {rest.length > 0 && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-line bg-charcoal mt-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-line-dark bg-charcoal mt-px">
             {rest.map((src, i) => (
               <div key={src} className="relative aspect-[4/3]">
                 <Image
