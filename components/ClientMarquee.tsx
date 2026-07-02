@@ -1,15 +1,15 @@
 import { CLIENTS } from '@/data/projects';
 
 export default function ClientMarquee() {
-  // Duplicate for seamless loop
-  const items = [...CLIENTS, ...CLIENTS];
+  // Triple for seamless loop with dense fill
+  const items = [...CLIENTS, ...CLIENTS, ...CLIENTS];
 
   return (
     <section
-      className="bg-dark border-t border-charcoal py-10 lg:py-12 overflow-hidden"
+      className="bg-dark border-t border-charcoal py-6 lg:py-8 overflow-hidden"
       aria-label="Clients and collaborators"
     >
-      <p className="section-eyebrow-light text-center mb-8 px-6">
+      <p className="section-eyebrow-light text-center mb-5 px-6">
         Clients &amp; Collaborators
       </p>
 
@@ -24,11 +24,11 @@ export default function ClientMarquee() {
         }}
       >
         <div
-          className="marquee-track flex items-center gap-14 w-max"
+          className="marquee-track flex items-center gap-10 w-max"
           aria-hidden="true"
         >
           {items.map((client, i) => (
-            <div key={i} className="flex-shrink-0 flex items-center justify-center h-16">
+            <div key={i} className="flex-shrink-0 flex items-center justify-center h-12">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={client.logo}
@@ -51,7 +51,7 @@ export default function ClientMarquee() {
         ))}
       </ul>
 
-      <p className="text-xs text-cream/20 text-center mt-8 max-w-xl mx-auto px-6">
+      <p className="text-xs text-cream/20 text-center mt-5 max-w-xl mx-auto px-6">
         Some work may be completed directly, through partners, or as part of larger event and production teams.
       </p>
     </section>
