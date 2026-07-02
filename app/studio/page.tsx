@@ -28,9 +28,9 @@ export default function StudioPage() {
     <div className="min-h-screen pt-16">
 
       {/* ── Studio intro ── */}
-      <section className="bg-dark py-20 lg:py-28" aria-labelledby="studio-heading">
+      <section className="bg-dark py-14 lg:py-28" aria-labelledby="studio-heading">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
             <div>
               <p className="section-eyebrow-light">The Studio</p>
@@ -61,10 +61,10 @@ export default function StudioPage() {
       </section>
 
       {/* ── Capabilities ── */}
-      <section className="bg-cream py-20 lg:py-28" aria-labelledby="capabilities-heading">
+      <section className="bg-cream py-12 lg:py-28" aria-labelledby="capabilities-heading">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
 
-          <div className="mb-12">
+          <div className="mb-8">
             <p className="section-eyebrow">Capabilities</p>
             <h2
               id="capabilities-heading"
@@ -76,7 +76,7 @@ export default function StudioPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-line-dark bg-charcoal">
             {capabilities.map(({ label, detail }) => (
-              <div key={label} className="bg-cream p-8">
+              <div key={label} className="bg-cream p-5 lg:p-8">
                 <h3 className="font-heading font-extrabold text-dark text-xl tracking-tight mb-2">
                   {label}
                 </h3>
@@ -89,10 +89,10 @@ export default function StudioPage() {
       </section>
 
       {/* ── Field experience ── */}
-      <section className="bg-dark py-20 lg:py-28" aria-labelledby="field-heading">
+      <section className="bg-dark py-14 lg:py-28" aria-labelledby="field-heading">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
 
             <div>
               <p className="section-eyebrow-light">Field Experience</p>
@@ -105,7 +105,7 @@ export default function StudioPage() {
               <p className="text-coolgray text-base leading-relaxed mb-5">
                 We don't just print it and ship it. Our team shows up on-site to make sure the install is done right — whether it's a tradeshow booth, a hotel lobby, a storefront takeover, or a large-scale event activation.
               </p>
-              <p className="text-coolgray text-base leading-relaxed mb-10">
+              <p className="text-coolgray text-base leading-relaxed mb-6">
                 We've worked at venues and events with tight access windows, multi-day installs, high-traffic timelines, and last-minute production changes. We know how to adapt on-site and deliver clean results under pressure.
               </p>
               <Link
@@ -143,9 +143,9 @@ export default function StudioPage() {
       </section>
 
       {/* ── Contact block ── */}
-      <section className="bg-navy py-20 lg:py-28" aria-labelledby="contact-heading">
+      <section className="bg-navy py-14 lg:py-28" aria-labelledby="contact-heading">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
             <div>
               <p className="section-eyebrow-light mb-4">Get in Touch</p>

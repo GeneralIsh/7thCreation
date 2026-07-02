@@ -80,7 +80,7 @@ export default function QuotePage() {
     <div className="min-h-screen">
 
       {/* ── Page header (dark, consistent) ── */}
-      <section className="bg-dark pt-32 pb-16 lg:pt-40 lg:pb-20">
+      <section className="bg-dark pt-24 pb-10 lg:pt-40 lg:pb-20">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
           <p className="section-eyebrow-light">Get a Quote</p>
           <h1 className="font-heading font-extrabold text-cream text-5xl lg:text-6xl tracking-tighter mb-4">
@@ -93,9 +93,9 @@ export default function QuotePage() {
       </section>
 
       {/* ── Form area ── */}
-      <section className="bg-cream py-16 lg:py-24">
+      <section className="bg-cream py-10 lg:py-24">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-16 items-start">
 
             {/* Left: contact info */}
             <div className="lg:col-span-2 lg:sticky lg:top-24">
@@ -126,7 +126,7 @@ export default function QuotePage() {
             </div>
 
             {/* Right: form */}
-            <div className="lg:col-span-3 bg-dark p-8 lg:p-10">
+            <div className="lg:col-span-3 bg-dark p-5 lg:p-10">
               <form onSubmit={handleSubmit} noValidate aria-label="Quote request form">
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">

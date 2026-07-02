@@ -10,7 +10,7 @@ export default function HomePage() {
       <HeroSection />
 
       {/* ── SERVICES STRIP ── */}
-      <section className="bg-dark border-t border-charcoal py-20 lg:py-24" aria-labelledby="services-intro-heading">
+      <section className="bg-dark border-t border-charcoal py-12 lg:py-24" aria-labelledby="services-intro-heading">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16 items-start">
 
@@ -49,7 +49,7 @@ export default function HomePage() {
       <ClientMarquee />
 
       {/* ── CTA BAND ── */}
-      <section className="bg-navy py-20 lg:py-28" aria-labelledby="cta-heading">
+      <section className="bg-navy py-14 lg:py-28" aria-labelledby="cta-heading">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10 text-center">
           <p className="section-eyebrow-light mb-4">Get Started</p>
           <h2
@@ -58,7 +58,7 @@ export default function HomePage() {
           >
             Ready to build<br />something?
           </h2>
-          <p className="text-cream/60 text-lg max-w-xl mx-auto mb-10">
+          <p className="text-cream/60 text-base lg:text-lg max-w-xl mx-auto mb-8">
             Send us your project details and we'll get back to you with a quote. Large-format, tight timelines, complex installs — we're set up for it.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">

@@ -16,7 +16,7 @@ export default function ServicesPage() {
     <div className="min-h-screen">
 
       {/* ── Page header (dark, consistent with other pages) ── */}
-      <section className="bg-dark pt-32 pb-16 lg:pt-40 lg:pb-20">
+      <section className="bg-dark pt-24 pb-10 lg:pt-40 lg:pb-20">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
           <p className="section-eyebrow-light">What We Do</p>
           <h1 className="font-heading font-extrabold text-cream text-5xl lg:text-6xl tracking-tighter mb-6">
@@ -29,12 +29,12 @@ export default function ServicesPage() {
       </section>
 
       {/* ── Primary services ── */}
-      <section className="bg-cream py-20 lg:py-24" aria-label="Services list">
+      <section className="bg-cream py-12 lg:py-24" aria-label="Services list">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-line-dark bg-charcoal mb-1.5">
             {primary.map((service) => (
-              <div key={service.title} className="bg-cream p-8 lg:p-10">
+              <div key={service.title} className="bg-cream p-5 lg:p-10">
                 <h2 className="font-heading font-extrabold text-dark text-xl lg:text-2xl tracking-tight mb-4">
                   {service.title}
                 </h2>
@@ -47,7 +47,7 @@ export default function ServicesPage() {
 
           {/* Installation / secondary — full width */}
           {secondary.map((service) => (
-            <div key={service.title} className="bg-charcoal/8 border border-silver p-8 lg:p-10">
+            <div key={service.title} className="bg-charcoal/8 border border-silver p-5 lg:p-10">
               <h2 className="font-heading font-extrabold text-dark text-xl lg:text-2xl tracking-tight mb-4">
                 {service.title}
               </h2>
@@ -61,7 +61,7 @@ export default function ServicesPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-navy py-20 lg:py-24" aria-labelledby="services-cta-heading">
+      <section className="bg-navy py-14 lg:py-24" aria-labelledby="services-cta-heading">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>

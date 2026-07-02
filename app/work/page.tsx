@@ -13,7 +13,7 @@ export default function WorkPage() {
     <div className="bg-dark min-h-screen">
 
       {/* ── Page header ── */}
-      <section className="pt-32 pb-12 lg:pt-40 lg:pb-16">
+      <section className="pt-24 pb-8 lg:pt-40 lg:pb-16">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
           <p className="section-eyebrow-light">Portfolio</p>
           <h1 className="font-heading font-extrabold text-cream text-5xl lg:text-6xl tracking-tighter">
