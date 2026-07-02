@@ -141,3 +141,6 @@
 .marquee-wrap:hover .logo-dark {
   opacity: 0.9;
 }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

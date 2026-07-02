@@ -12,7 +12,7 @@ export default function HomePage() {
       {/* ── SERVICES STRIP ── */}
       <section className="bg-dark border-t border-charcoal py-20 lg:py-24" aria-labelledby="services-intro-heading">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-16 items-start">
 
             <div>
               <p className="section-eyebrow-light">Conceptualize. Create. Complete.</p>

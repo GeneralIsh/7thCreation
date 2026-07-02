@@ -21,7 +21,7 @@ export default function WorkGrid({ projects, showFilters = false }: WorkGridProp
     <div>
       {showFilters && (
         <div
-          className="flex flex-wrap gap-2 mb-10"
+          className="no-scrollbar flex flex-nowrap gap-2 mb-8 overflow-x-auto pb-1 -mx-6 px-6 sm:mx-0 sm:px-0 sm:flex-wrap"
           role="group"
           aria-label="Filter projects by category"
         >
@@ -43,7 +43,7 @@ export default function WorkGrid({ projects, showFilters = false }: WorkGridProp
       )}
 
       <div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-line bg-silver"
+        className="grid grid-cols-2 lg:grid-cols-3 gap-line bg-silver"
         role="list"
         aria-label="Project work tiles"
       >

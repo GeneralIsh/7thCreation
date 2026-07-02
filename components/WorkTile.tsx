@@ -33,11 +33,11 @@ export default function WorkTile({ project, priority = false }: WorkTileProps) {
       </div>
 
       {/* Caption */}
-      <div className="p-5">
-        <p className="text-xs text-coolgray uppercase tracking-widest font-semibold mb-1">
+      <div className="p-3 sm:p-5">
+        <p className="text-[9px] sm:text-xs text-coolgray uppercase tracking-widest font-semibold mb-0.5 truncate">
           {project.category}
         </p>
-        <h3 className="font-heading font-extrabold text-cream text-lg leading-tight tracking-tight group-hover:text-lightblue transition-colors duration-200">
+        <h3 className="font-heading font-extrabold text-cream text-sm sm:text-lg leading-snug tracking-tight group-hover:text-lightblue transition-colors duration-200">
           {project.title}
         </h3>
       </div>
