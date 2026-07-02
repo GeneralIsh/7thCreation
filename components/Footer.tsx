@@ -14,18 +14,15 @@ export default function Footer() {
             <Link
               href="/"
               aria-label="7th Creation Studio — Home"
-              className="inline-flex items-center gap-2.5 mb-5 focus-ring rounded-sm"
+              className="inline-flex mb-5 focus-ring rounded-sm"
             >
               <Image
-                src="/images/logo/icon-light.png"
-                alt=""
-                width={38}
-                height={34}
-                className="object-contain flex-shrink-0"
+                src="/images/logo/lockup-light.png"
+                alt="7th Creation Studio"
+                width={140}
+                height={39}
+                className="object-contain"
               />
-              <span className="font-heading font-extrabold text-lg text-cream tracking-tighter leading-none">
-                7th<span className="text-lightblue">Creation</span>
-              </span>
             </Link>
             <p className="text-sm text-coolgray leading-relaxed max-w-xs mb-4">
               Large-format graphics production studio in Oakland, CA. We design, produce, and install graphics built for real spaces.

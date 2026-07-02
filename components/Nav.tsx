@@ -47,19 +47,16 @@ export default function Nav() {
           <Link
             href="/"
             aria-label="7th Creation Studio — Home"
-            className="flex items-center gap-2.5 focus-ring rounded-sm"
+            className="flex items-center focus-ring rounded-sm"
           >
             <Image
-              src="/images/logo/icon-light.png"
-              alt=""
-              width={34}
-              height={30}
-              className="object-contain flex-shrink-0"
+              src="/images/logo/lockup-light-nostudio.png"
+              alt="7th Creation Studio"
+              width={120}
+              height={34}
+              className="object-contain"
               priority
             />
-            <span className="font-heading font-extrabold text-xl text-cream tracking-tighter leading-none">
-              7th<span className="text-lightblue">Creation</span>
-            </span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8" aria-label="Primary navigation">
