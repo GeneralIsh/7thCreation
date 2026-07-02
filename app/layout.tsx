@@ -19,6 +19,7 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.7thcreation.com'),
   title: {
     default: '7th Creation Studio — Large-Format Graphics, Exhibition Displays & Installation | Oakland, CA',
     template: '%s | 7th Creation Studio',
