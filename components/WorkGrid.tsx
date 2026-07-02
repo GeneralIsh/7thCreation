@@ -17,6 +17,10 @@ export default function WorkGrid({ projects, showFilters = false }: WorkGridProp
     ? projects
     : projects.filter((p) => p.tag === activeTag);
 
+  const showFeatured = activeTag === 'all' && filtered.length > 0;
+  const featuredProject = showFeatured ? filtered[0] : null;
+  const gridProjects = showFeatured ? filtered.slice(1) : filtered;
+
   return (
     <div>
       {showFilters && (
@@ -41,7 +45,6 @@ export default function WorkGrid({ projects, showFilters = false }: WorkGridProp
               </button>
             ))}
           </div>
-          {/* Scroll hint gradient — mobile only */}
           <div
             className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-dark to-transparent sm:hidden"
             aria-hidden="true"
@@ -49,24 +52,27 @@ export default function WorkGrid({ projects, showFilters = false }: WorkGridProp
         </div>
       )}
 
-      <div
-        className="grid grid-cols-2 lg:grid-cols-3 gap-line-dark bg-charcoal"
-        role="list"
-        aria-label="Project work tiles"
-      >
-        {filtered.map((project, i) => {
-          const isFeatured = i === 0 && activeTag === 'all';
-          return (
-            <div
-              key={project.slug}
-              role="listitem"
-              className={isFeatured ? 'col-span-2 lg:col-span-2' : ''}
-            >
-              <WorkTile project={project} priority={i < 3} featured={isFeatured} />
+      {/* Featured hero tile — full width, above the grid */}
+      {featuredProject && (
+        <div className="mb-px">
+          <WorkTile project={featuredProject} priority featured />
+        </div>
+      )}
+
+      {/* Uniform grid */}
+      {gridProjects.length > 0 && (
+        <div
+          className="grid grid-cols-2 lg:grid-cols-3 gap-line-dark bg-charcoal"
+          role="list"
+          aria-label="Project work tiles"
+        >
+          {gridProjects.map((project, i) => (
+            <div key={project.slug} role="listitem">
+              <WorkTile project={project} priority={!showFeatured && i < 3} />
             </div>
-          );
-        })}
-      </div>
+          ))}
+        </div>
+      )}
 
       {filtered.length === 0 && (
         <p className="text-coolgray text-sm py-16 text-center">

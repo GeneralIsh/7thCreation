@@ -63,8 +63,8 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         </div>
 
-        {/* Primary image — cinematic hero */}
-        <div className="relative w-full overflow-hidden" style={{ aspectRatio: '21/9' }}>
+        {/* Primary image */}
+        <div className="relative aspect-[16/9] w-full overflow-hidden">
           {primary ? (
             <Image
               src={primary}

@@ -16,7 +16,7 @@ export default function WorkTile({ project, priority = false, featured = false }
       aria-label={`View project: ${project.title}`}
     >
       {/* Image area */}
-      <div className={`relative overflow-hidden ${featured ? 'aspect-[16/9]' : 'aspect-[4/3]'}`}>
+      <div className={`relative overflow-hidden ${featured ? 'aspect-[16/9] max-h-[560px]' : 'aspect-[4/3]'}`}>
         {project.images[0] ? (
           <Image
             src={project.images[0]}
