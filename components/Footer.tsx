@@ -25,7 +25,6 @@ export default function Footer() {
               />
               <span className="font-heading font-extrabold text-lg text-cream tracking-tighter leading-none">
                 7th<span className="text-lightblue">Creation</span>
-                <span className="block text-[9px] font-semibold text-coolgray uppercase tracking-[0.2em] leading-none mt-0.5">Studio</span>
               </span>
             </Link>
             <p className="text-sm text-coolgray leading-relaxed max-w-xs mb-4">
