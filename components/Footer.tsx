@@ -17,10 +17,10 @@ export default function Footer() {
               className="inline-flex mb-5 focus-ring rounded-sm"
             >
               <Image
-                src="/images/logo/lockup-light.png"
+                src="/images/logo/wordmark-light-studio.png"
                 alt="7th Creation Studio"
-                width={140}
-                height={39}
+                width={160}
+                height={44}
                 className="object-contain"
               />
             </Link>

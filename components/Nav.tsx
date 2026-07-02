@@ -50,10 +50,10 @@ export default function Nav() {
             className="flex items-center focus-ring rounded-sm"
           >
             <Image
-              src="/images/logo/lockup-light-nostudio.png"
+              src="/images/logo/wordmark-light.png"
               alt="7th Creation Studio"
-              width={120}
-              height={34}
+              width={130}
+              height={36}
               className="object-contain"
               priority
             />
