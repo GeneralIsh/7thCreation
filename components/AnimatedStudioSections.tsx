@@ -47,7 +47,6 @@ const CLIENTS_WORKED = [
   'Gap Inc.',
   'Eventbrite',
   'PrizePicks',
-  'Super Bowl Activations',
 ];
 
 const ECOSYSTEM = [

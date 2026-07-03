@@ -53,6 +53,7 @@ export default function QuotePage() {
   const [form, setForm] = useState<FormState>(EMPTY);
   const [status, setStatus] = useState<Status>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [submittedEmail, setSubmittedEmail] = useState('');
 
   const set = (field: keyof FormState, value: string) =>
     setForm((f) => ({ ...f, [field]: value }));
@@ -68,6 +69,12 @@ export default function QuotePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (status === 'loading') return;
+
+    if (form.services.length === 0) {
+      setStatus('error');
+      setErrorMsg('Please choose at least one service.');
+      return;
+    }
 
     setStatus('loading');
     setErrorMsg('');
@@ -94,6 +101,7 @@ export default function QuotePage() {
         throw new Error(data.error || 'Something went wrong. Please try again.');
       }
 
+      setSubmittedEmail(form.email);
       setStatus('success');
       setForm(EMPTY);
     } catch (err: unknown) {
@@ -190,13 +198,16 @@ export default function QuotePage() {
                       Request received.
                     </h2>
                     <p className="text-coolgray text-sm leading-relaxed max-w-sm mx-auto mb-2">
-                      We'll follow up at <strong className="text-cream">{form.email || 'your email'}</strong> within 1–2 business days with a quote.
+                      We'll follow up at <strong className="text-cream">{submittedEmail || 'your email'}</strong> within 1–2 business days with a quote.
                     </p>
                     <p className="text-coolgray text-sm mb-8">
                       Check your inbox — a confirmation is on its way.
                     </p>
                     <button
-                      onClick={() => setStatus('idle')}
+                      onClick={() => {
+                        setStatus('idle');
+                        setSubmittedEmail('');
+                      }}
                       className="text-xs font-bold text-coolgray uppercase tracking-widest hover:text-cream transition-colors"
                     >
                       Submit another request →
@@ -269,6 +280,7 @@ export default function QuotePage() {
                             >
                               <input
                                 type="checkbox" className="sr-only"
+                                name="services"
                                 checked={checked} onChange={() => toggleService(s)}
                               />
                               <span

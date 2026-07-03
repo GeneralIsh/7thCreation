@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SERVICES } from '@/data/projects';
+import { absoluteUrl } from '@/lib/seo';
 import FadeIn from '@/components/FadeIn';
 import AnimatedServiceGrid from '@/components/AnimatedServiceGrid';
 import AnimatedProcessGrid from '@/components/AnimatedProcessGrid';
@@ -10,6 +11,13 @@ export const metadata: Metadata = {
   title: 'Services',
   description:
     '7th Creation Studio offers end-to-end large-format graphics production — exhibition displays, environmental graphics, vehicle wraps, retail signage, DTF apparel, and on-site installation. Oakland, CA.',
+  alternates: { canonical: '/services' },
+  openGraph: {
+    url: absoluteUrl('/services'),
+    title: 'Services | 7th Creation Studio',
+    description:
+      'End-to-end large-format graphics production, vehicle wraps, retail signage, environmental graphics, DTF apparel, and on-site installation in Oakland, CA.',
+  },
 };
 
 const SUBSTRATES = [
@@ -44,6 +52,13 @@ export default function ServicesPage() {
               End-to-end graphics production — design, print, and install. We work with agencies, brands, event teams, and production houses across the Bay Area and beyond.
             </p>
           </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Rush & volume callout ── */}
+      <section className="bg-charcoal py-10 lg:py-16" aria-label="Rush and volume production">
+        <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
+          <AnimatedCalloutGrid />
         </div>
       </section>
 
@@ -128,13 +143,6 @@ export default function ServicesPage() {
             </FadeIn>
 
           </div>
-        </div>
-      </section>
-
-      {/* ── Rush & volume callout ── */}
-      <section className="bg-charcoal py-10 lg:py-16" aria-label="Rush and volume production">
-        <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
-          <AnimatedCalloutGrid />
         </div>
       </section>
 

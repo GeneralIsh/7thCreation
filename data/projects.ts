@@ -18,11 +18,7 @@ export const projects: Project[] = [
     title: 'Airport Route Launch — SFO',
     scope: 'Branded gate arch, retractable banner display, and event-ready installation for an international airline route launch at San Francisco International Airport.',
     production: 'Large-format print on rigid substrate, full wraparound arch panels with branded gradient, retractable banner system, and on-site event installation at SFO.',
-    images: [
-      '/images/work/airport-launch-0.jpg',
-      '/images/work/airport-launch-1.jpg',
-      '/images/work/airport-launch-2.jpg',
-    ],
+    images: [],
   },
   {
     slug: 'creator-space-graphics-system',
@@ -32,11 +28,7 @@ export const projects: Project[] = [
     scope: 'Exterior graphic panels, translucent window vinyl, opaque interior glass decals, floor graphics, cornhole decals, and ping-pong logo decals.',
     production: 'Large-format print, panel production, die-cut vinyl, transfer masking, and on-site installation.',
     note: 'Die-cut vinyl, not dye cut.',
-    images: [
-      '/images/work/creator-space.jpg',
-      '/images/work/creator-space-1.jpg',
-      '/images/work/creator-space-2.jpg',
-    ],
+    images: [],
   },
   {
     slug: 'hotel-lobby-welcome-graphics',
@@ -45,11 +37,7 @@ export const projects: Project[] = [
     title: 'Hotel Lobby Welcome Graphics',
     scope: 'Large-format balcony graphics produced and installed for a hospitality event environment.',
     production: 'Large-format print, panel mounting, and on-site install at venue.',
-    images: [
-      '/images/work/hotel-lobby.jpg',
-      '/images/work/hotel-lobby-1.jpg',
-      '/images/work/hotel-lobby-2.jpg',
-    ],
+    images: [],
   },
   {
     slug: 'retail-window-takeover',
@@ -58,11 +46,7 @@ export const projects: Project[] = [
     title: 'Retail Window Takeover',
     scope: 'High-visibility storefront graphics and window branding for street-level retail.',
     production: 'Cut vinyl, window film application, and on-site install.',
-    images: [
-      '/images/work/retail-window.jpg',
-      '/images/work/retail-window-1.jpg',
-      '/images/work/retail-window-2.jpg',
-    ],
+    images: [],
   },
   {
     slug: 'vehicle-transit-graphics',
@@ -85,11 +69,7 @@ export const projects: Project[] = [
     title: 'Label Production',
     scope: 'High-volume printed labels with consistent color and production-ready finishing.',
     production: 'Large-format print, color-matched output, and finishing for product application.',
-    images: [
-      '/images/work/label-production.jpg',
-      '/images/work/label-production-1.jpg',
-      '/images/work/label-production-2.jpg',
-    ],
+    images: [],
   },
   {
     slug: 'branded-kits-apparel',
@@ -98,11 +78,7 @@ export const projects: Project[] = [
     title: 'Branded Kits & Apparel',
     scope: 'Custom packaging, apparel, labels, decals, and promotional print pieces.',
     production: 'DTF transfer, apparel decoration, and short-run packaging production.',
-    images: [
-      '/images/work/branded-kits.jpg',
-      '/images/work/branded-kits-1.jpg',
-      '/images/work/branded-kits-2.jpg',
-    ],
+    images: [],
   },
 ];
 

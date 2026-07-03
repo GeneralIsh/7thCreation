@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { absoluteUrl } from '@/lib/seo';
 import FadeIn from '@/components/FadeIn';
 import {
   StatsBar,
@@ -13,6 +14,13 @@ export const metadata: Metadata = {
   title: 'Studio',
   description:
     '7th Creation Studio is a Bay Area large-format graphics production studio based in Oakland, CA. We design, produce, and install graphics for exhibitions, events, retail environments, and branded spaces.',
+  alternates: { canonical: '/studio' },
+  openGraph: {
+    url: absoluteUrl('/studio'),
+    title: 'Studio | 7th Creation Studio',
+    description:
+      'Bay Area large-format graphics production studio based in Oakland, CA, built for exhibition, event, retail, and branded environment installs.',
+  },
 };
 
 export default function StudioPage() {

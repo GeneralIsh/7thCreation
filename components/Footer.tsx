@@ -8,9 +8,9 @@ export default function Footer() {
     <footer className="bg-dark border-t border-charcoal" role="contentinfo">
       <div className="max-w-[1320px] mx-auto px-6 lg:px-10 py-16">
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-[minmax(0,1fr)_minmax(9rem,12rem)_minmax(13rem,16rem)] gap-x-4 sm:gap-x-6 gap-y-10 md:gap-x-12 lg:gap-x-20 mb-12">
 
-          <div>
+          <div className="col-span-2 text-center md:col-span-1 md:text-left">
             <Link
               href="/"
               aria-label="7th Creation Studio — Home"
@@ -24,7 +24,7 @@ export default function Footer() {
                 className="object-contain"
               />
             </Link>
-            <p className="text-sm text-coolgray leading-relaxed max-w-xs mb-4">
+            <p className="text-sm text-coolgray leading-relaxed max-w-xs mx-auto md:mx-0 mb-4">
               Large-format graphics production studio in Oakland, CA. We design, produce, and install graphics built for real spaces.
             </p>
             <p className="text-xs font-bold text-lightblue/60 uppercase tracking-widest">
@@ -32,7 +32,7 @@ export default function Footer() {
             </p>
           </div>
 
-          <nav aria-label="Footer navigation">
+          <nav aria-label="Footer navigation" className="min-w-0 text-center md:text-left">
             <p className="section-eyebrow-light mb-4">Navigate</p>
             <ul className="flex flex-col gap-3" role="list">
               {[
@@ -40,12 +40,11 @@ export default function Footer() {
                 { href: '/work', label: 'Work' },
                 { href: '/services', label: 'Services' },
                 { href: '/studio', label: 'Studio' },
-                { href: '/quote', label: 'Request a Quote' },
               ].map(({ href, label }) => (
                 <li key={href}>
                   <Link
                     href={href}
-                    className="text-sm text-coolgray hover:text-cream transition-colors focus-ring rounded-sm"
+                    className="text-[13px] sm:text-sm text-coolgray hover:text-cream transition-colors focus-ring rounded-sm"
                   >
                     {label}
                   </Link>
@@ -54,13 +53,13 @@ export default function Footer() {
             </ul>
           </nav>
 
-          <address>
+          <address className="min-w-0 text-center md:text-left">
             <p className="section-eyebrow-light mb-4">Contact</p>
-            <ul className="flex flex-col gap-3 text-sm text-coolgray" role="list">
+            <ul className="flex flex-col gap-3 text-[13px] sm:text-sm text-coolgray" role="list">
               <li>
                 <a
                   href="mailto:studio@7thcreation.com"
-                  className="hover:text-cream transition-colors focus-ring rounded-sm"
+                  className="break-words hover:text-cream transition-colors focus-ring rounded-sm"
                 >
                   studio@7thcreation.com
                 </a>
@@ -76,6 +75,14 @@ export default function Footer() {
               <li className="leading-relaxed">
                 95 Linden St<br />
                 Oakland, CA 94607
+              </li>
+              <li>
+                <Link
+                  href="/quote"
+                  className="font-bold text-lightblue hover:text-cream transition-colors focus-ring rounded-sm"
+                >
+                  Request a Quote
+                </Link>
               </li>
             </ul>
           </address>
@@ -99,7 +106,7 @@ export default function Footer() {
           </a>
         </div>
 
-        <div className="border-t border-charcoal pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div className="border-t border-charcoal pt-8 flex flex-col sm:flex-row justify-between items-center sm:items-center gap-4 text-center sm:text-left">
           <p className="text-xs text-gray">
             &copy; {year} 7th Creation Studio. All rights reserved.
           </p>
