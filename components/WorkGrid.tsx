@@ -13,10 +13,26 @@ interface WorkGridProps {
 
 export default function WorkGrid({ projects, showFilters = false, clickable = true }: WorkGridProps) {
   const [activeTag, setActiveTag] = useState<string>('all');
+  const getFilterLabel = (tag: Project['tag']) =>
+    FILTER_TAGS.find((filter) => filter.value === tag)?.label ?? tag;
 
   const filtered = activeTag === 'all'
     ? projects
     : projects.filter((p) => p.tag === activeTag);
+
+  const visibleTiles = activeTag === 'all'
+    ? filtered.map((project) => ({ project, imageSrc: project.images[0], imageIndex: 0 }))
+    : filtered.flatMap((project) => {
+        if (project.images.length === 0) {
+          return [{ project, imageSrc: project.images[0], imageIndex: 0 }];
+        }
+
+        return project.images.map((imageSrc, imageIndex) => ({
+          project,
+          imageSrc,
+          imageIndex,
+        }));
+      });
 
   return (
     <div>
@@ -54,14 +70,25 @@ export default function WorkGrid({ projects, showFilters = false, clickable = tr
         role="list"
         aria-label="Project work tiles"
       >
-        {filtered.map((project, i) => (
-          <div key={project.slug} role="listitem">
-            <WorkTile project={project} priority={i < 3} clickable={clickable} />
+        {visibleTiles.map(({ project, imageSrc, imageIndex }, i) => (
+          <div key={`${project.slug}-${imageIndex}`} role="listitem">
+            <WorkTile
+              project={project}
+              imageSrc={imageSrc}
+              imageAlt={imageIndex === 0 ? project.title : `${project.title} detail ${imageIndex + 1}`}
+              captionLabel={getFilterLabel(project.tag)}
+              priority={i < 3}
+              clickable={clickable}
+              showCaption
+              showCategory={activeTag === 'all'}
+              showTitle={activeTag !== 'all'}
+              onTileClick={activeTag === 'all' ? () => setActiveTag(project.tag) : undefined}
+            />
           </div>
         ))}
       </div>
 
-      {filtered.length === 0 && (
+      {visibleTiles.length === 0 && (
         <p className="text-coolgray text-sm py-16 text-center">
           No projects in this category yet.
         </p>

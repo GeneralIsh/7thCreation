@@ -2,8 +2,11 @@ import Link from 'next/link';
 import { SERVICES } from '@/data/projects';
 import ClientMarquee from '@/components/ClientMarquee';
 import HeroSection from '@/components/HeroSection';
+import MobileServiceAccordion from '@/components/MobileServiceAccordion';
 
 export default function HomePage() {
+  const primaryServices = SERVICES.filter((s) => !s.secondary).slice(0, 6);
+
   return (
     <>
       {/* ── HERO ── */}
@@ -30,17 +33,52 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-0 sm:gap-y-7">
-              {SERVICES.filter((s) => !s.secondary).slice(0, 6).map((service) => (
-                <div key={service.title} className="border-t border-charcoal py-5 sm:border-none sm:py-0">
-                  <h3 className="font-heading font-extrabold text-cream text-base tracking-tight mb-1.5">
-                    {service.title}
-                  </h3>
-                  <p className="text-cream/50 text-sm leading-relaxed">{service.description}</p>
-                </div>
-              ))}
+            <div className="lg:col-span-2">
+              <MobileServiceAccordion services={primaryServices} />
+
+              <div className="hidden sm:grid sm:grid-cols-2 gap-x-8 gap-y-7">
+                {primaryServices.map((service) => (
+                  <div key={service.title} className="border-t border-charcoal py-5 sm:border-none sm:py-0">
+                    <h3 className="font-heading font-extrabold text-cream text-base tracking-tight mb-1.5">
+                      {service.title}
+                    </h3>
+                    <p className="text-cream/50 text-sm leading-relaxed">{service.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* ── PRODUCTION PROOF ── */}
+      <section className="bg-charcoal border-t border-gray/25 py-10 lg:py-14" aria-label="Production capabilities">
+        <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-14">
+            {[
+              {
+                label: 'Rush Production',
+                body: "Same-day and next-day turnarounds on select print types.",
+              },
+              {
+                label: 'High-Volume Runs',
+                body: 'Consistent color, clean finishing, and production-ready output at scale.',
+              },
+              {
+                label: 'Complex Installs',
+                body: 'Multi-day, high-access, and multi-location installs coordinated end to end.',
+              },
+            ].map(({ label, body }) => (
+              <div key={label}>
+                <h3 className="font-heading font-extrabold text-cream text-lg tracking-tight mb-2">
+                  {label}
+                </h3>
+                <p className="text-coolgray text-sm leading-relaxed">
+                  {body}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

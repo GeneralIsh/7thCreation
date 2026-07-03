@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { projects } from '@/data/projects';
 import ProjectImageGallery from '@/components/ProjectImageGallery';
+import { absoluteUrl } from '@/lib/seo';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -16,9 +17,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
+  const url = absoluteUrl(`/work/${project.slug}`);
+  const image = project.images[0];
   return {
     title: project.title,
     description: project.scope,
+    alternates: { canonical: `/work/${project.slug}` },
+    openGraph: {
+      type: 'article',
+      url,
+      title: `${project.title} | 7th Creation Studio`,
+      description: project.scope,
+      images: image
+        ? [{ url: image, width: 1200, height: 900, alt: project.title }]
+        : undefined,
+    },
   };
 }
 

@@ -7,44 +7,81 @@ import type { Project } from '@/data/projects';
 
 interface WorkTileProps {
   project: Project;
+  imageSrc?: string;
+  imageAlt?: string;
+  captionLabel?: string;
   priority?: boolean;
   clickable?: boolean;
+  showCaption?: boolean;
+  showCategory?: boolean;
+  showTitle?: boolean;
+  onTileClick?: () => void;
 }
 
-export default function WorkTile({ project, priority = false, clickable = true }: WorkTileProps) {
+export default function WorkTile({
+  project,
+  imageSrc,
+  imageAlt,
+  captionLabel,
+  priority = false,
+  clickable = true,
+  showCaption = true,
+  showCategory = true,
+  showTitle = true,
+  onTileClick,
+}: WorkTileProps) {
   const [imgError, setImgError] = useState(false);
+  const tileImage = imageSrc ?? project.images[0];
 
   const inner = (
     <>
       {/* Image area — uniform 4/3 */}
       <div className="relative aspect-[4/3] overflow-hidden bg-dark">
-        {project.images[0] && !imgError ? (
+        {tileImage && !imgError ? (
           <Image
-            src={project.images[0]}
-            alt={project.title}
+            src={tileImage}
+            alt={imageAlt ?? project.title}
             fill
             sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 440px"
-            className="object-cover work-tile-bg"
+            className="object-contain work-tile-bg"
             priority={priority}
             onError={() => setImgError(true)}
           />
         ) : null}
-        {clickable && (
+        {(clickable || onTileClick) && (
           <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/30 transition-colors duration-350" />
         )}
       </div>
 
-      {/* Caption */}
-      <div className="p-3 sm:p-5">
-        <p className="text-[9px] sm:text-xs text-coolgray uppercase tracking-widest font-semibold mb-0.5 truncate">
-          {project.category}
-        </p>
-        <h3 className={`font-heading font-extrabold text-cream text-sm sm:text-lg leading-snug tracking-tight ${clickable ? 'group-hover:text-lightblue transition-colors duration-200' : ''}`}>
-          {project.title}
-        </h3>
-      </div>
+      {showCaption && (
+        <div className="p-3 sm:p-5">
+          {showCategory && (
+            <p className="text-[10px] sm:text-sm text-cream uppercase tracking-widest font-extrabold leading-tight break-words mb-0.5">
+              {captionLabel ?? project.category}
+            </p>
+          )}
+          {showTitle && (
+            <h3 className={`font-heading font-extrabold text-cream text-sm sm:text-lg leading-snug tracking-tight ${clickable ? 'group-hover:text-lightblue transition-colors duration-200' : ''}`}>
+              {project.title}
+            </h3>
+          )}
+        </div>
+      )}
     </>
   );
+
+  if (onTileClick) {
+    return (
+      <button
+        type="button"
+        className="group relative block w-full bg-dark overflow-hidden text-left focus-ring"
+        aria-label={`Show ${project.category} work`}
+        onClick={onTileClick}
+      >
+        {inner}
+      </button>
+    );
+  }
 
   if (!clickable) {
     return (

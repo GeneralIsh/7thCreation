@@ -1,11 +1,19 @@
 import type { Metadata } from 'next';
 import { projects } from '@/data/projects';
 import WorkGrid from '@/components/WorkGrid';
+import { absoluteUrl } from '@/lib/seo';
 
 export const metadata: Metadata = {
   title: 'Work',
   description:
     'Selected projects from 7th Creation Studio — exhibition graphics, environmental graphics, retail storefronts, vehicle wraps, print production, and branded apparel.',
+  alternates: { canonical: '/work' },
+  openGraph: {
+    url: absoluteUrl('/work'),
+    title: 'Work | 7th Creation Studio',
+    description:
+      'Selected exhibition graphics, environmental graphics, storefront graphics, vehicle wraps, print production, and branded apparel projects.',
+  },
 };
 
 export default function WorkPage() {
