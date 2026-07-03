@@ -69,13 +69,13 @@ export const projects: Project[] = [
     category: 'Vehicle & Fleet Graphics',
     tag: 'vehicle',
     title: 'Vehicle & Fleet Wraps',
-    scope: 'Full and partial vehicle wraps for transit agencies, commercial fleets, and branded vehicles — from city transit buses to cargo vans and box trucks.',
+    scope: 'Full and partial vehicle wraps for commercial fleets, food businesses, and brand activations — Sprinter vans, box trucks, and cargo vehicles.',
     production: 'Large-format vinyl wrap production, panel layout, contour cutting, lamination, and on-vehicle application.',
     images: [
-      '/images/work/vehicle-transit-0.jpg',
-      '/images/work/vehicle-transit-1.jpg',
-      '/images/work/vehicle-transit-2.jpg',
-      '/images/work/vehicle-transit-3.jpg',
+      '/images/work/vehicle-wraps/ms-joy-real.jpg',
+      '/images/work/vehicle-wraps/dickeys-bbq-truck.jpg',
+      '/images/work/vehicle-wraps/strava-van.jpg',
+      '/images/work/vehicle-wraps/ms-joy-mockup.jpg',
     ],
   },
   {
