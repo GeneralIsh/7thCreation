@@ -200,9 +200,18 @@ async function callLocalTool(toolName, args) {
 function runDenoMCP(binary, toolMethod, toolArgs) {
   return new Promise((resolve, reject) => {
     const proc = spawn(
-      "/Users/yawamfusa/.deno/bin/" + binary,
-      [],
-      { env: { ...process.env, PATH: process.env.PATH + ":/Users/yawamfusa/.deno/bin" } }
+      "/Users/yawamfusa/.deno/bin/deno",
+      [
+        "run",
+        "--allow-read",
+        "--allow-write",
+        "--allow-env",
+        "--allow-sys",
+        "--allow-ffi",
+        "--allow-net",
+        "/Users/yawamfusa/.deno/bin/" + binary
+      ],
+      { env: { ...process.env, PATH: process.env.PATH + ":/Users/yawamfusa/.deno/bin:/opt/homebrew/bin" } }
     );
 
     const request = JSON.stringify({
