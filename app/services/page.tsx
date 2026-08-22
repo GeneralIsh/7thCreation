@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SERVICES } from '@/data/projects';
+import { serviceLandingPages } from '@/data/serviceLandingPages';
 import { absoluteUrl } from '@/lib/seo';
 import FadeIn from '@/components/FadeIn';
 import AnimatedServiceGrid from '@/components/AnimatedServiceGrid';
@@ -88,6 +89,42 @@ export default function ServicesPage() {
           {/* Desktop: animated grid */}
           <AnimatedServiceGrid primary={primary} secondary={secondary} />
 
+        </div>
+      </section>
+
+      {/* ── High-intent service pages ── */}
+      <section className="bg-dark py-14 lg:py-24" aria-labelledby="service-pages-heading">
+        <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
+          <FadeIn>
+            <div className="mb-10 lg:mb-14">
+              <p className="section-eyebrow-light mb-3">Popular Project Types</p>
+              <h2
+                id="service-pages-heading"
+                className="font-heading font-extrabold text-cream text-4xl lg:text-5xl tracking-tighter"
+              >
+                Find the right<br />production lane.
+              </h2>
+            </div>
+          </FadeIn>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-line-dark bg-charcoal">
+            {serviceLandingPages.map((page) => (
+              <Link
+                key={page.slug}
+                href={`/services/${page.slug}`}
+                className="group bg-dark p-6 lg:p-8 focus-ring"
+              >
+                <p className="text-[10px] font-bold uppercase tracking-widest text-lightblue mb-3">
+                  Oakland + Bay Area
+                </p>
+                <h3 className="font-heading font-extrabold text-cream text-xl tracking-tight mb-4 group-hover:text-lightblue transition-colors">
+                  {page.title}
+                </h3>
+                <p className="text-coolgray text-sm leading-relaxed">
+                  {page.metaDescription}
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

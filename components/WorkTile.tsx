@@ -9,7 +9,10 @@ interface WorkTileProps {
   project: Project;
   imageSrc?: string;
   imageAlt?: string;
+  videoSrc?: string;
+  videoPoster?: string;
   captionLabel?: string;
+  titleLabel?: string;
   priority?: boolean;
   clickable?: boolean;
   showCaption?: boolean;
@@ -22,7 +25,10 @@ export default function WorkTile({
   project,
   imageSrc,
   imageAlt,
+  videoSrc,
+  videoPoster,
   captionLabel,
+  titleLabel,
   priority = false,
   clickable = true,
   showCaption = true,
@@ -32,21 +38,56 @@ export default function WorkTile({
 }: WorkTileProps) {
   const [imgError, setImgError] = useState(false);
   const tileImage = imageSrc ?? project.images[0];
+  const hasVideo = Boolean(videoSrc);
 
   const inner = (
     <>
       {/* Image area — uniform 4/3 */}
       <div className="relative aspect-[4/3] overflow-hidden bg-dark">
-        {tileImage && !imgError ? (
-          <Image
-            src={tileImage}
-            alt={imageAlt ?? project.title}
-            fill
-            sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 440px"
-            className="object-contain work-tile-bg"
-            priority={priority}
-            onError={() => setImgError(true)}
-          />
+        {hasVideo && videoSrc ? (
+          <>
+            {videoPoster && (
+              <Image
+                src={videoPoster}
+                alt=""
+                fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 440px"
+                className="scale-110 object-cover opacity-45 blur-xl"
+                aria-hidden="true"
+              />
+            )}
+            <video
+              className="h-full w-full object-cover"
+              autoPlay
+              muted
+              loop
+              playsInline
+              poster={videoPoster}
+              aria-label={imageAlt ?? project.title}
+            >
+              <source src={videoSrc} type="video/mp4" />
+            </video>
+          </>
+        ) : tileImage && !imgError ? (
+          <>
+            <Image
+              src={tileImage}
+              alt=""
+              fill
+              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 440px"
+              className="scale-110 object-cover opacity-45 blur-xl"
+              aria-hidden="true"
+            />
+            <Image
+              src={tileImage}
+              alt={imageAlt ?? project.title}
+              fill
+              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 440px"
+              className="object-contain work-tile-bg"
+              priority={priority}
+              onError={() => setImgError(true)}
+            />
+          </>
         ) : null}
         {(clickable || onTileClick) && (
           <div className="absolute inset-0 bg-dark/0 group-hover:bg-dark/30 transition-colors duration-350" />
@@ -62,7 +103,7 @@ export default function WorkTile({
           )}
           {showTitle && (
             <h3 className={`font-heading font-extrabold text-cream text-sm sm:text-lg leading-snug tracking-tight ${clickable ? 'group-hover:text-lightblue transition-colors duration-200' : ''}`}>
-              {project.title}
+              {titleLabel ?? project.title}
             </h3>
           )}
         </div>

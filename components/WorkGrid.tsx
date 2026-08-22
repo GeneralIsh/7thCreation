@@ -11,28 +11,94 @@ interface WorkGridProps {
   clickable?: boolean;
 }
 
+interface WorkMediaTile {
+  project: Project;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageIndex: number;
+  titleLabel: string;
+  tileKey: string;
+  videoSrc?: string;
+  videoPoster?: string;
+}
+
 export default function WorkGrid({ projects, showFilters = false, clickable = true }: WorkGridProps) {
   const [activeTag, setActiveTag] = useState<string>('all');
   const getFilterLabel = (tag: Project['tag']) =>
     FILTER_TAGS.find((filter) => filter.value === tag)?.label ?? tag;
 
   const filtered = activeTag === 'all'
-    ? projects
+    ? FILTER_TAGS
+        .filter((filter) => filter.value !== 'all')
+        .map((filter) => projects.find((project) => project.tag === filter.value))
+        .filter((project): project is Project => Boolean(project))
     : projects.filter((p) => p.tag === activeTag);
 
-  const visibleTiles = activeTag === 'all'
-    ? filtered.map((project) => ({ project, imageSrc: project.images[0], imageIndex: 0 }))
-    : filtered.flatMap((project) => {
+  const visibleTiles: WorkMediaTile[] = activeTag === 'all'
+    ? filtered.map<WorkMediaTile>((project) => ({
+        project,
+        imageSrc: project.images[0],
+        imageIndex: 0,
+        titleLabel: project.title,
+        tileKey: `${project.tag}-preview`,
+      }))
+    : filtered.flatMap<WorkMediaTile>((project) => {
         if (project.images.length === 0) {
-          return [{ project, imageSrc: project.images[0], imageIndex: 0 }];
+          return [{
+            project,
+            imageSrc: project.images[0],
+            imageAlt: project.title,
+            imageIndex: 0,
+            titleLabel: project.title,
+            tileKey: `${project.slug}-empty`,
+          }];
         }
 
-        return project.images.map((imageSrc, imageIndex) => ({
+        const [primaryImage, ...secondaryImages] = project.images;
+        const videoTiles = (project.videos ?? []).map((video, videoIndex) => ({
           project,
-          imageSrc,
-          imageIndex,
+          imageSrc: video.tilePoster ?? video.poster,
+          imageIndex: videoIndex,
+          titleLabel: video.title,
+          videoSrc: video.tileMp4 ?? video.mp4,
+          videoPoster: video.tilePoster ?? video.poster,
+          tileKey: `${project.slug}-video-${videoIndex}`,
+        }));
+
+        const imageTiles: WorkMediaTile[] = [
+          {
+            project,
+            imageSrc: primaryImage,
+            imageIndex: 0,
+            titleLabel: project.title,
+            tileKey: `${project.slug}-image-0`,
+          },
+          ...videoTiles,
+          ...secondaryImages.map((imageSrc, imageIndex) => ({
+            project,
+            imageSrc,
+            imageIndex: imageIndex + 1,
+            titleLabel: project.title,
+            tileKey: `${project.slug}-image-${imageIndex + 1}`,
+          })),
+        ];
+
+        return imageTiles.map((tile) => ({
+          ...tile,
+          imageAlt: tile.videoSrc
+            ? `${project.title} ${tile.titleLabel}`
+            : tile.imageIndex === 0
+              ? project.title
+              : `${project.title} detail ${tile.imageIndex + 1}`,
         }));
       });
+
+  const tilesWithAlt = visibleTiles.map((tile) => ({
+    ...tile,
+    imageAlt: tile.imageAlt ?? (
+      tile.imageIndex === 0 ? tile.project.title : `${tile.project.title} detail ${tile.imageIndex + 1}`
+    ),
+  }));
 
   return (
     <div>
@@ -70,13 +136,16 @@ export default function WorkGrid({ projects, showFilters = false, clickable = tr
         role="list"
         aria-label="Project work tiles"
       >
-        {visibleTiles.map(({ project, imageSrc, imageIndex }, i) => (
-          <div key={`${project.slug}-${imageIndex}`} role="listitem">
+        {tilesWithAlt.map(({ project, imageSrc, imageAlt, imageIndex, titleLabel, tileKey, videoSrc, videoPoster }, i) => (
+          <div key={tileKey} role="listitem">
             <WorkTile
               project={project}
               imageSrc={imageSrc}
-              imageAlt={imageIndex === 0 ? project.title : `${project.title} detail ${imageIndex + 1}`}
+              imageAlt={imageAlt}
+              videoSrc={videoSrc}
+              videoPoster={videoPoster}
               captionLabel={getFilterLabel(project.tag)}
+              titleLabel={titleLabel}
               priority={i < 3}
               clickable={clickable}
               showCaption
@@ -88,7 +157,7 @@ export default function WorkGrid({ projects, showFilters = false, clickable = tr
         ))}
       </div>
 
-      {visibleTiles.length === 0 && (
+      {tilesWithAlt.length === 0 && (
         <p className="text-coolgray text-sm py-16 text-center">
           No projects in this category yet.
         </p>

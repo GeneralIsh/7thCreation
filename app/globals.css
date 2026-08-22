@@ -112,16 +112,12 @@
 /* Client logo marquee */
 @keyframes marquee {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(-25%); }
 }
 
 .marquee-track {
-  animation: marquee 16s linear infinite;
+  animation: marquee 28s linear infinite;
   will-change: transform;
-}
-
-.marquee-wrap:hover .marquee-track {
-  animation-play-state: paused;
 }
 
 /* White-bg logos → grayscale+invert = white silhouettes on dark bg */

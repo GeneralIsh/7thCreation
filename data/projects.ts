@@ -8,17 +8,47 @@ export interface Project {
   note?: string;
   /** Paths relative to /public, e.g. /images/work/airport-launch.jpg */
   images: string[];
+  videos?: {
+    title: string;
+    mp4: string;
+    poster: string;
+    tileMp4?: string;
+    tilePoster?: string;
+  }[];
 }
 
 export const projects: Project[] = [
   {
+    slug: 'hotel-lobby-welcome-graphics',
+    category: 'Hospitality Graphics',
+    tag: 'exhibition',
+    title: 'Oakland Marriott Lobby Graphics',
+    scope: 'Large-format balcony graphics produced and installed for the Oakland Marriott lobby environment.',
+    production: 'Large-format print, balcony glass graphic production, lift access, and on-site install at the hotel lobby.',
+    images: [
+      '/images/work/hotel-lobby/oakland-lobby.webp',
+    ],
+    videos: [
+      {
+        title: 'Installation Timelapse',
+        mp4: '/videos/work/oakland-marriott-lobby-timelapse.mp4',
+        poster: '/videos/work/oakland-marriott-lobby-poster.jpg',
+        tileMp4: '/videos/work/oakland-marriott-lobby-timelapse-square.mp4',
+        tilePoster: '/videos/work/oakland-marriott-lobby-timelapse-square-poster.jpg',
+      },
+    ],
+  },
+  {
     slug: 'airport-launch-graphics',
     category: 'Exhibition & Event Graphics',
     tag: 'exhibition',
-    title: 'Airport Route Launch — SFO',
-    scope: 'Branded gate arch, retractable banner display, and event-ready installation for an international airline route launch at San Francisco International Airport.',
-    production: 'Large-format print on rigid substrate, full wraparound arch panels with branded gradient, retractable banner system, and on-site event installation at SFO.',
-    images: [],
+    title: 'Avianca Airlines Route Launch — SFO',
+    scope: 'Branded gate arch, retractable banner display, and event-ready graphics for an Avianca Airlines route launch at San Francisco International Airport.',
+    production: 'Large-format print on rigid substrate, full wraparound arch panels with Avianca-branded gradient, retractable banner system, and on-site event installation at SFO.',
+    images: [
+      '/images/work/airport-launch/avianca-arch.webp',
+      '/images/work/airport-launch/avianca-ribbon.webp',
+    ],
   },
   {
     slug: 'creator-space-graphics-system',
@@ -28,16 +58,15 @@ export const projects: Project[] = [
     scope: 'Exterior graphic panels, translucent window vinyl, opaque interior glass decals, floor graphics, cornhole decals, and ping-pong logo decals.',
     production: 'Large-format print, panel production, die-cut vinyl, transfer masking, and on-site installation.',
     note: 'Die-cut vinyl, not dye cut.',
-    images: [],
-  },
-  {
-    slug: 'hotel-lobby-welcome-graphics',
-    category: 'Hospitality Graphics',
-    tag: 'exhibition',
-    title: 'Hotel Lobby Welcome Graphics',
-    scope: 'Large-format balcony graphics produced and installed for a hospitality event environment.',
-    production: 'Large-format print, panel mounting, and on-site install at venue.',
-    images: [],
+    images: [
+      '/images/work/creator-space/creator-mural.webp',
+      '/images/work/creator-space/creator-mural-wide.webp',
+      '/images/work/creator-space/creator-window.webp',
+      '/images/work/creator-space/creator-glass-install.webp',
+      '/images/work/creator-space/creator-floor.webp',
+      '/images/work/creator-space/creator-hallway.webp',
+      '/images/work/creator-space/creator-mural-progress.webp',
+    ],
   },
   {
     slug: 'retail-window-takeover',
@@ -46,7 +75,9 @@ export const projects: Project[] = [
     title: 'Retail Window Takeover',
     scope: 'High-visibility storefront graphics and window branding for street-level retail.',
     production: 'Cut vinyl, window film application, and on-site install.',
-    images: [],
+    images: [
+      '/images/work/retail-storefront/salomon-storefront.webp',
+    ],
   },
   {
     slug: 'vehicle-transit-graphics',
@@ -56,10 +87,12 @@ export const projects: Project[] = [
     scope: 'Full and partial vehicle wraps for commercial fleets, food businesses, and brand activations — Sprinter vans, box trucks, and cargo vehicles.',
     production: 'Large-format vinyl wrap production, panel layout, contour cutting, lamination, and on-vehicle application.',
     images: [
-      '/images/work/vehicle-wraps/ms-joy-real.jpg',
-      '/images/work/vehicle-wraps/dickeys-bbq-truck.jpg',
-      '/images/work/vehicle-wraps/strava-van.jpg',
-      '/images/work/vehicle-wraps/ms-joy-mockup.jpg',
+      '/images/work/vehicle-wraps/dickeys-truck.webp',
+      '/images/work/vehicle-wraps/colorful-cars.webp',
+      '/images/work/vehicle-wraps/msjoy-van.webp',
+      '/images/work/vehicle-wraps/santa-cruz-bus.webp',
+      '/images/work/vehicle-wraps/strava-van.webp',
+      '/images/work/vehicle-wraps/msjoy-render.webp',
     ],
   },
   {
@@ -69,7 +102,13 @@ export const projects: Project[] = [
     title: 'Label Production',
     scope: 'High-volume printed labels with consistent color and production-ready finishing.',
     production: 'Large-format print, color-matched output, and finishing for product application.',
-    images: [],
+    images: [
+      '/images/work/label-production/ghost-labels.webp',
+      '/images/work/label-production/ghost-artwork.webp',
+      '/images/work/label-production/poster-production.webp',
+      '/images/work/label-production/grando-uvdtf.webp',
+      '/images/work/label-production/flatbed-cutter.webp',
+    ],
   },
   {
     slug: 'branded-kits-apparel',
@@ -78,7 +117,13 @@ export const projects: Project[] = [
     title: 'Branded Kits & Apparel',
     scope: 'Custom packaging, apparel, labels, decals, and promotional print pieces.',
     production: 'DTF transfer, apparel decoration, and short-run packaging production.',
-    images: [],
+    images: [
+      '/images/work/branded-kits-apparel/branded-gift.webp',
+      '/images/work/branded-kits-apparel/gift-kit.webp',
+      '/images/work/branded-kits-apparel/heat-press-detail.webp',
+      '/images/work/branded-kits-apparel/heat-presses.webp',
+      '/images/work/branded-kits-apparel/wedding-fan.webp',
+    ],
   },
 ];
 

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { projects } from '@/data/projects';
+import { serviceLandingPages } from '@/data/serviceLandingPages';
 import { absoluteUrl } from '@/lib/seo';
 
 const staticRoutes = [
@@ -26,6 +27,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     })),
+    ...serviceLandingPages.map((page) => ({
+      url: absoluteUrl(`/services/${page.slug}`),
+      lastModified: updated,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
   ];
 }
-

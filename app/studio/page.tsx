@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { absoluteUrl } from '@/lib/seo';
 import FadeIn from '@/components/FadeIn';
@@ -22,6 +23,29 @@ export const metadata: Metadata = {
       'Bay Area large-format graphics production studio based in Oakland, CA, built for exhibition, event, retail, and branded environment installs.',
   },
 };
+
+const SHOP_IMAGES = [
+  {
+    src: '/images/work/studio/canon-printers.webp',
+    title: 'Wide-Format Printers',
+    className: 'col-span-2 aspect-[16/10]',
+  },
+  {
+    src: '/images/work/studio/laminator.webp',
+    title: 'Finishing & Lamination',
+    className: 'aspect-[4/3]',
+  },
+  {
+    src: '/images/work/studio/mimaki-cjv.webp',
+    title: 'Print Production',
+    className: 'aspect-[4/3]',
+  },
+  {
+    src: '/images/work/studio/studio-overhead.webp',
+    title: 'Shop Workflow',
+    className: 'aspect-[4/3]',
+  },
+] as const;
 
 export default function StudioPage() {
   return (
@@ -76,8 +100,15 @@ export default function StudioPage() {
             </div>
 
             <FadeIn from="right" delay={0.15}>
-              <div className="relative aspect-[4/3] lg:aspect-auto lg:h-[560px]">
-                <div className="img-placeholder w-full h-full" aria-hidden="true" />
+              <div className="relative aspect-[4/3] overflow-hidden lg:aspect-auto lg:h-[560px]">
+                <Image
+                  src="/images/work/studio/studio-production-floor.webp"
+                  alt="7th Creation Studio production floor"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  priority
+                />
               </div>
             </FadeIn>
 
@@ -89,6 +120,49 @@ export default function StudioPage() {
       <section className="bg-charcoal" aria-label="Studio at a glance">
         <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
           <StatsBar />
+        </div>
+      </section>
+
+      {/* ── Shop gallery ── */}
+      <section className="bg-dark border-t border-charcoal py-14 lg:py-24" aria-labelledby="shop-heading">
+        <div className="max-w-[1320px] mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-8 lg:gap-16 items-start">
+            <FadeIn from="left">
+              <div className="lg:sticky lg:top-24">
+                <p className="section-eyebrow-light mb-3">Inside the Shop</p>
+                <h2
+                  id="shop-heading"
+                  className="font-heading font-extrabold text-cream text-4xl lg:text-5xl tracking-tighter mb-5"
+                >
+                  Built for print,<br />finish, and install.
+                </h2>
+                <p className="text-coolgray text-sm lg:text-base leading-relaxed">
+                  The shop is set up for large-format output, finishing, and fast handoff to installation crews. These are the production tools behind the work: printers, cutters, laminators, and the floor space to keep jobs moving cleanly.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn from="right">
+              <div className="grid grid-cols-2 gap-line-dark bg-charcoal">
+                {SHOP_IMAGES.map(({ src, title, className }) => (
+                  <figure key={src} className={`group relative overflow-hidden bg-dark ${className}`}>
+                    <Image
+                      src={src}
+                      alt={`${title} at 7th Creation Studio`}
+                      fill
+                      sizes="(max-width: 1024px) 50vw, 34vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                    />
+                    <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-dark/80 to-transparent px-4 pb-4 pt-12">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-cream">
+                        {title}
+                      </span>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
@@ -149,11 +223,23 @@ export default function StudioPage() {
 
             <FadeIn from="right">
               <div>
-                <div className="relative aspect-[4/3] mb-3">
-                  <div className="img-placeholder w-full h-full" aria-hidden="true" />
+                <div className="relative aspect-[4/3] overflow-hidden mb-3">
+                  <Image
+                    src="/images/work/studio/studio-overhead.webp"
+                    alt="Overhead view of studio production equipment"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
                 </div>
-                <div className="relative aspect-[16/9]">
-                  <div className="img-placeholder w-full h-full" aria-hidden="true" />
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  <Image
+                    src="/images/work/studio/studio-production-floor.webp"
+                    alt="Large-format production equipment at 7th Creation Studio"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                  />
                 </div>
               </div>
             </FadeIn>

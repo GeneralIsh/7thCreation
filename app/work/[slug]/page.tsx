@@ -77,7 +77,12 @@ export default async function ProjectPage({ params }: Props) {
         </div>
 
         {primary && (
-          <ProjectImageGallery primary={primary} rest={rest} title={project.title} />
+          <ProjectImageGallery
+            primary={primary}
+            rest={rest}
+            title={project.title}
+            videos={project.videos}
+          />
         )}
 
         {/* CTA */}
