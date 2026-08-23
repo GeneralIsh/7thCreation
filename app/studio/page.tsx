@@ -102,8 +102,8 @@ export default function StudioPage() {
             <FadeIn from="right" delay={0.15}>
               <div className="relative aspect-[4/3] overflow-hidden lg:aspect-auto lg:h-[560px]">
                 <Image
-                  src="/images/work/studio/studio-production-floor.webp"
-                  alt="7th Creation Studio production floor"
+                  src="/images/work/studio/studio-overhead.webp"
+                  alt="Overhead view of 7th Creation Studio production equipment"
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
@@ -223,19 +223,10 @@ export default function StudioPage() {
 
             <FadeIn from="right">
               <div>
-                <div className="relative aspect-[4/3] overflow-hidden mb-3">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <Image
                     src="/images/work/studio/studio-overhead.webp"
                     alt="Overhead view of studio production equipment"
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="relative aspect-[16/9] overflow-hidden">
-                  <Image
-                    src="/images/work/studio/studio-production-floor.webp"
-                    alt="Large-format production equipment at 7th Creation Studio"
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover"
