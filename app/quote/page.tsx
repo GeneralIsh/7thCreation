@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import FadeIn from '@/components/FadeIn';
+import { trackEvent } from '@/lib/analytics';
+import { getAttribution } from '@/lib/attribution';
 
 const SERVICE_OPTIONS = [
   'Exhibition / Event Graphics',
@@ -82,6 +84,7 @@ export default function QuotePage() {
     setErrorMsg('');
 
     try {
+      const attribution = getAttribution();
       const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -94,6 +97,7 @@ export default function QuotePage() {
           timeline: form.timeline,
           budget: form.budget,
           details: form.details,
+          ...attribution,
         }),
       });
 
@@ -109,6 +113,13 @@ export default function QuotePage() {
         throw new Error(data.error || 'Something went wrong. Please try again.');
       }
 
+      trackEvent('generate_lead', {
+        lead_type: 'quote_request',
+        service_count: form.services.length,
+        has_timeline: Boolean(form.timeline),
+        has_budget: Boolean(form.budget),
+        ...attribution,
+      });
       setSubmittedEmail(form.email);
       setStatus('success');
       setForm(EMPTY);
@@ -160,12 +171,14 @@ export default function QuotePage() {
                 <a
                   href="mailto:studio@7thcreation.com"
                   className="text-blue font-semibold hover:text-dark transition-colors focus-ring rounded-sm"
+                  onClick={() => trackEvent('contact', { method: 'email', location: 'quote_page' })}
                 >
                   studio@7thcreation.com
                 </a>
                 <a
                   href="tel:+15107073235"
                   className="text-blue font-semibold hover:text-dark transition-colors focus-ring rounded-sm"
+                  onClick={() => trackEvent('contact', { method: 'phone', location: 'quote_page' })}
                 >
                   (510) 707-3235
                 </a>
@@ -368,6 +381,7 @@ export default function QuotePage() {
                             <a
                               href="mailto:studio@7thcreation.com"
                               className="text-lightblue font-semibold underline underline-offset-2 hover:text-cream"
+                              onClick={() => trackEvent('contact', { method: 'email', location: 'quote_form_recovery' })}
                             >
                               studio@7thcreation.com
                             </a>{' '}
@@ -375,6 +389,7 @@ export default function QuotePage() {
                             <a
                               href="tel:+15107073235"
                               className="text-lightblue font-semibold underline underline-offset-2 hover:text-cream"
+                              onClick={() => trackEvent('contact', { method: 'phone', location: 'quote_form_recovery' })}
                             >
                               (510) 707-3235
                             </a>{' '}

@@ -151,7 +151,7 @@ export default function WorkGrid({ projects, showFilters = false, clickable = tr
               showCaption
               showCategory={activeTag === 'all'}
               showTitle={activeTag !== 'all'}
-              onTileClick={activeTag === 'all' ? () => setActiveTag(project.tag) : undefined}
+              onTileClick={activeTag === 'all' && !clickable ? () => setActiveTag(project.tag) : undefined}
             />
           </div>
         ))}
