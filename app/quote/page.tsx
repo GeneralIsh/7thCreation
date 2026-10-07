@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import FadeIn from '@/components/FadeIn';
-import { trackEvent } from '@/lib/analytics';
+import { trackEvent, trackQuoteRequestConversion } from '@/lib/analytics';
 import { getAttribution } from '@/lib/attribution';
 
 const SERVICE_OPTIONS = [
@@ -120,6 +120,7 @@ export default function QuotePage() {
         has_budget: Boolean(form.budget),
         ...attribution,
       });
+      trackQuoteRequestConversion();
       setSubmittedEmail(form.email);
       setStatus('success');
       setForm(EMPTY);
