@@ -12,6 +12,11 @@ const MAX_LENGTH = {
   timeline: 80,
   budget: 80,
   details: 3000,
+  utmSource: 120,
+  utmMedium: 120,
+  utmCampaign: 180,
+  utmTerm: 240,
+  landingPage: 240,
 };
 
 export async function POST(req: NextRequest) {
@@ -44,6 +49,11 @@ export async function POST(req: NextRequest) {
   const timeline = cleanText(body.timeline, MAX_LENGTH.timeline);
   const budget = cleanText(body.budget, MAX_LENGTH.budget);
   const details = cleanText(body.details, MAX_LENGTH.details);
+  const utmSource = cleanText(body.utmSource, MAX_LENGTH.utmSource);
+  const utmMedium = cleanText(body.utmMedium, MAX_LENGTH.utmMedium);
+  const utmCampaign = cleanText(body.utmCampaign, MAX_LENGTH.utmCampaign);
+  const utmTerm = cleanText(body.utmTerm, MAX_LENGTH.utmTerm);
+  const landingPage = cleanText(body.landingPage, MAX_LENGTH.landingPage);
 
   if (!name || !email || !EMAIL_RE.test(email) || !service || service === 'Not specified' || !details) {
     return NextResponse.json(
@@ -67,9 +77,21 @@ export async function POST(req: NextRequest) {
     timeline: escapeHtml(timeline),
     budget: escapeHtml(budget),
     details: escapeHtml(details),
+    utmSource: escapeHtml(utmSource),
+    utmMedium: escapeHtml(utmMedium),
+    utmCampaign: escapeHtml(utmCampaign),
+    utmTerm: escapeHtml(utmTerm),
+    landingPage: escapeHtml(landingPage),
     firstName: escapeHtml(name.split(/\s+/)[0]),
   };
   const phoneHref = phone.replace(/[^\d+]/g, '');
+  const attributionRows = [
+    utmSource ? row('UTM Source', safe.utmSource) : '',
+    utmMedium ? row('UTM Medium', safe.utmMedium) : '',
+    utmCampaign ? row('UTM Campaign', safe.utmCampaign) : '',
+    utmTerm ? row('UTM Term', safe.utmTerm) : '',
+    landingPage ? row('Landing Page', safe.landingPage) : '',
+  ].join('');
 
   // ── Studio notification email ──────────────────────────────────────────────
   const studioHtml = `
@@ -99,6 +121,7 @@ export async function POST(req: NextRequest) {
               ${timeline ? row('Timeline', safe.timeline) : ''}
               ${budget ? row('Budget Range', safe.budget) : ''}
               ${row('Project Details', `<span style="white-space:pre-wrap;">${safe.details}</span>`)}
+              ${attributionRows}
             </table>
           </td>
         </tr>
