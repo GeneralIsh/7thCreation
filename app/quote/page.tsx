@@ -53,6 +53,7 @@ export default function QuotePage() {
   const [form, setForm] = useState<FormState>(EMPTY);
   const [status, setStatus] = useState<Status>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const [showDirectContact, setShowDirectContact] = useState(false);
   const [submittedEmail, setSubmittedEmail] = useState('');
 
   const set = (field: keyof FormState, value: string) =>
@@ -69,6 +70,7 @@ export default function QuotePage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (status === 'loading') return;
+    setShowDirectContact(false);
 
     if (form.services.length === 0) {
       setStatus('error');
@@ -95,9 +97,15 @@ export default function QuotePage() {
         }),
       });
 
-      const data = await res.json();
+      const data: { success?: boolean; error?: string } = await res.json().catch(() => ({}));
 
       if (!res.ok || !data.success) {
+        if (res.status === 503 || res.status >= 500) {
+          setStatus('error');
+          setShowDirectContact(true);
+          setErrorMsg('Our online request form is temporarily unavailable.');
+          return;
+        }
         throw new Error(data.error || 'Something went wrong. Please try again.');
       }
 
@@ -354,6 +362,25 @@ export default function QuotePage() {
                     {status === 'error' && (
                       <div className="mb-6 px-4 py-3 border border-red-500/40 bg-red-500/10">
                         <p className="text-red-400 text-sm">{errorMsg}</p>
+                        {showDirectContact && (
+                          <p className="mt-2 text-coolgray text-sm leading-relaxed">
+                            Please email{' '}
+                            <a
+                              href="mailto:studio@7thcreation.com"
+                              className="text-lightblue font-semibold underline underline-offset-2 hover:text-cream"
+                            >
+                              studio@7thcreation.com
+                            </a>{' '}
+                            or call{' '}
+                            <a
+                              href="tel:+15107073235"
+                              className="text-lightblue font-semibold underline underline-offset-2 hover:text-cream"
+                            >
+                              (510) 707-3235
+                            </a>{' '}
+                            to start your project.
+                          </p>
+                        )}
                       </div>
                     )}
 
