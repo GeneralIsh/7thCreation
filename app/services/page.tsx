@@ -11,13 +11,13 @@ import AnimatedCalloutGrid from '@/components/AnimatedCalloutGrid';
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    '7th Creation Studio offers end-to-end large-format graphics production — exhibition displays, environmental graphics, vehicle wraps, retail signage, DTF apparel, and on-site installation. Oakland, CA.',
+    '7th Creation Studio offers end-to-end large-format graphics production — exhibition displays, environmental graphics, vehicle wraps, retail signage, custom stickers, contour-cut decals, DTF apparel, and on-site installation. Oakland, CA.',
   alternates: { canonical: '/services' },
   openGraph: {
     url: absoluteUrl('/services'),
     title: 'Services | 7th Creation Studio',
     description:
-      'End-to-end large-format graphics production, vehicle wraps, retail signage, environmental graphics, DTF apparel, and on-site installation in Oakland, CA.',
+      'End-to-end large-format graphics production, vehicle wraps, retail signage, custom stickers, contour-cut decals, DTF apparel, and on-site installation in Oakland, CA.',
   },
 };
 
@@ -27,7 +27,8 @@ const SUBSTRATES = [
   { name: 'Rigid Board', uses: 'Gatorboard, foamcore, PVC, sintra — mounted prints and signage' },
   { name: 'Acrylic & Metal', uses: 'Dimensional letters, lobby signage, premium display graphics' },
   { name: 'Specialty Film', uses: 'Frosted, perforated, clear, chrome, and textured window films' },
-  { name: 'DTF Transfer', uses: 'Apparel decoration, branded kits, short-run merch production' },
+  { name: 'Sticker & Label Media', uses: 'Custom stickers, labels, decals, die-cut sheets, and contour-cut graphics' },
+  { name: 'DTF Transfer', uses: 'Apparel decoration, branded kits, short-run merch, and ready-to-press transfers' },
 ];
 
 export default function ServicesPage() {

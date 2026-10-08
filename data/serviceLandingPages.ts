@@ -213,4 +213,84 @@ export const serviceLandingPages: ServiceLandingPage[] = [
       },
     ],
   },
+  {
+    slug: 'custom-stickers-labels-oakland',
+    title: 'Custom Stickers & Labels Oakland',
+    eyebrow: 'Stickers, Labels & Contour-Cut Graphics',
+    metaTitle: 'Custom Stickers & Labels Oakland | Contour-Cut Decals',
+    metaDescription:
+      'Custom stickers, labels, decals, and contour-cut graphics in Oakland for branded products, packaging, retail, events, equipment, and short-run production.',
+    h1: 'Custom stickers, labels, and contour-cut graphics in Oakland.',
+    intro:
+      '7th Creation Studio produces custom sticker, label, decal, and contour-cut graphic runs for brands, retailers, event teams, product makers, and production partners that need clean files, durable materials, and dependable finishing.',
+    bestFor: [
+      'Custom stickers, die-cut decals, kiss-cut sheets, and branded labels',
+      'Product packaging, promotional handouts, branded kits, and event collateral',
+      'Equipment, retail, window, or rigid-substrate graphics that need a clean cut path',
+      'Short-run and repeat production with consistent size, finish, and handoff',
+    ],
+    capabilities: [
+      'Artwork preflight, cut-path review, sizing, and production setup',
+      'Print, contour cutting, trimming, and finishing for vinyl, paper, and compatible substrates',
+      'Material and finish guidance for indoor, outdoor, removable, or durable applications',
+      'Pack-out and delivery-ready organization for product, retail, or event use',
+    ],
+    process: [
+      'Send artwork, quantity, finished size, material preference, and needed-by date.',
+      'We confirm cut path, substrate, finish, durability, and production timing.',
+      'The run is printed, contour-cut, finished, and packed for its intended use.',
+    ],
+    faq: [
+      {
+        question: 'Can you contour cut custom shapes?',
+        answer:
+          'Yes. We can contour cut stickers, decals, and compatible substrate graphics to a supplied vector cut path, or help confirm the right cut approach before production.',
+      },
+      {
+        question: 'Can you help choose sticker or label material?',
+        answer:
+          'Yes. We will recommend material and finish based on the surface, durability, exposure, removal needs, quantity, and how the finished piece will be used.',
+      },
+    ],
+  },
+  {
+    slug: 'dtf-transfers-apparel-oakland',
+    title: 'DTF Transfers & Apparel Oakland',
+    eyebrow: 'DTF Transfers & Custom Apparel',
+    metaTitle: 'DTF Transfers & Custom Apparel Oakland, CA',
+    metaDescription:
+      'DTF transfers and custom apparel production in Oakland for branded shirts, crew wear, event merchandise, short-run garments, and production-ready transfer runs.',
+    h1: 'DTF transfers and custom apparel production in Oakland.',
+    intro:
+      '7th Creation Studio produces DTF transfers and custom apparel for teams, brands, events, and operators who need clean artwork, dependable placement, and short-run or repeat production without treating the job like commodity merch.',
+    bestFor: [
+      'Branded tees, hoodies, crew wear, uniforms, and event merchandise',
+      'DTF transfer runs for approved artwork and compatible garments',
+      'Short-run launches, branded kits, staff apparel, and promotional pieces',
+      'Production partners who need artwork-aware, deadline-driven apparel support',
+    ],
+    capabilities: [
+      'Artwork preflight, transfer sizing, placement planning, and production checks',
+      'DTF transfer production for cotton, blends, and many compatible garments',
+      'Custom apparel decoration, short-run merch, and repeat-order support',
+      'Clear handoff requirements for client-supplied garments, files, quantities, and deadlines',
+    ],
+    process: [
+      'Send artwork, garment or transfer sizes, quantities, colors, and deadline.',
+      'We confirm file readiness, transfer sizing, garment compatibility, and production plan.',
+      'Transfers or finished apparel are produced, checked, and packed for delivery or pickup.',
+    ],
+    faq: [
+      {
+        question: 'Can you produce DTF transfers only?',
+        answer:
+          'Yes, where that is the right fit. Tell us whether you need ready-to-press transfers or finished garments, along with artwork, sizes, quantities, and deadline.',
+      },
+      {
+        question: 'What do you need to quote a DTF or apparel job?',
+        answer:
+          'We need the artwork, print or garment sizes, quantities, garment details if applicable, number of print locations, color information, and the needed-by date.',
+      },
+    ],
+  },
 ];
