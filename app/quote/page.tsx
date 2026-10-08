@@ -11,6 +11,7 @@ const SERVICE_OPTIONS = [
   'Large-Format Print Production',
   'Retail / Storefront Graphics',
   'Vehicle / Fleet Graphics',
+  'Stickers / Labels / Decals',
   'Apparel / DTF / Custom Print',
   'Installation / Site Services',
   'Other / Not Sure',
