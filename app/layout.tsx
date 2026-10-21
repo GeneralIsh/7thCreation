@@ -28,6 +28,9 @@ export const metadata: Metadata = {
   },
   description: DEFAULT_DESCRIPTION,
   robots: 'index, follow',
+  other: {
+    'facebook-domain-verification': 'twb1711cuwd8tje3v26u6c70oefpvx',
+  },
   alternates: { canonical: '/' },
   icons: {
     icon: [{ url: '/favicon-32.png', sizes: '32x32', type: 'image/png' }],
