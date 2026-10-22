@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { after } from 'next/server';
+import { quoteEventId, sendQuoteConversion } from '@/lib/openai-conversions';
 
 const STUDIO_EMAIL = 'studio@7thcreation.com';
 const EMAIL_RE = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -204,6 +206,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ success: false, error: 'Failed to send email.' }, { status: 500 });
     }
 
+    // Schedule only after both email deliveries succeed. Next keeps this task
+    // alive after the response; analytics never delays or rejects the quote.
+    const conversionId = quoteEventId(body.conversionEventId);
+    const measurementConsent = body.openaiMeasurementConsent === true &&
+      req.headers?.get('sec-gpc') !== '1';
+    if (measurementConsent) {
+      try {
+        after(() => sendQuoteConversion(conversionId, true));
+      } catch {
+        console.warn('[OpenAI Ads] Unable to schedule conversion delivery.');
+      }
+    }
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error('[Quote API] Unexpected error:', err);

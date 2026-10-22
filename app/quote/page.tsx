@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import FadeIn from '@/components/FadeIn';
 import { trackEvent, trackQuoteRequestConversion } from '@/lib/analytics';
 import { getAttribution } from '@/lib/attribution';
@@ -58,6 +58,8 @@ export default function QuotePage() {
   const [errorMsg, setErrorMsg] = useState('');
   const [showDirectContact, setShowDirectContact] = useState(false);
   const [submittedEmail, setSubmittedEmail] = useState('');
+  const [measurementConsent, setMeasurementConsent] = useState(false);
+  const conversionEventId = useRef<string>();
 
   const set = (field: keyof FormState, value: string) =>
     setForm((f) => ({ ...f, [field]: value }));
@@ -86,6 +88,7 @@ export default function QuotePage() {
 
     try {
       const attribution = getAttribution();
+      conversionEventId.current ??= crypto.randomUUID();
       const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -99,6 +102,9 @@ export default function QuotePage() {
           budget: form.budget,
           details: form.details,
           ...attribution,
+          conversionEventId: conversionEventId.current,
+          openaiMeasurementConsent: measurementConsent &&
+            !(navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl,
         }),
       });
 
@@ -124,6 +130,7 @@ export default function QuotePage() {
       trackQuoteRequestConversion();
       setSubmittedEmail(form.email);
       setStatus('success');
+      conversionEventId.current = undefined;
       setForm(EMPTY);
     } catch (err: unknown) {
       setStatus('error');
@@ -372,6 +379,19 @@ export default function QuotePage() {
                         onChange={(e) => set('details', e.target.value)}
                       />
                     </div>
+
+                    <label className="flex items-start gap-3 mb-6 text-sm text-coolgray leading-relaxed">
+                      <input
+                        type="checkbox"
+                        className="mt-1 accent-blue"
+                        checked={measurementConsent}
+                        onChange={(e) => setMeasurementConsent(e.target.checked)}
+                      />
+                      <span>
+                        Allow 7th Creation to measure this completed request with OpenAI Ads (optional).
+                        We share that a request was completed, never your contact details or project information.
+                      </span>
+                    </label>
 
                     {/* Error message */}
                     {status === 'error' && (
