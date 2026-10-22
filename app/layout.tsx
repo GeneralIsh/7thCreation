@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import { Montserrat, Archivo } from 'next/font/google';
 import './globals.css';
 import Nav from '@/components/Nav';
 import Footer from '@/components/Footer';
 import Analytics from '@/components/Analytics';
+import MeasurementConsent from '@/components/MeasurementConsent';
 import { DEFAULT_DESCRIPTION, DEFAULT_OG_IMAGE, SITE_NAME, SITE_URL, absoluteUrl } from '@/lib/seo';
 
 const montserrat = Montserrat({
@@ -111,6 +113,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
         </main>
         <Footer />
+        <Suspense fallback={null}><MeasurementConsent /></Suspense>
       </body>
     </html>
   );
