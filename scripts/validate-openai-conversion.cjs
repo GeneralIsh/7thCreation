@@ -16,10 +16,17 @@ async function main() {
     signal: AbortSignal.timeout(10000),
   });
   // Never print the response body, request headers or credential.
-  if (!result.ok) throw new Error(`Validation failed with HTTP ${result.status}.`);
+  if (!result.ok) {
+    console.error(`[OpenAI Ads validation] API rejected validate_only request: HTTP ${result.status}.`);
+    throw new Error('API rejected validation.');
+  }
   console.log(`[OpenAI Ads validation] validate_only=true accepted: HTTP ${result.status}; no lead recorded.`);
 }
-main().catch(() => {
+main().catch((error) => {
+  const code = error?.cause?.code;
+  if (typeof code === 'string' && /^[A-Z0-9_]{1,40}$/.test(code)) {
+    console.error(`[OpenAI Ads validation] Transport error code: ${code}.`);
+  }
   console.error('[OpenAI Ads validation] Validation failed; check conversion credential/configuration. No secret logged.');
   process.exitCode = 1;
 });
