@@ -7,7 +7,7 @@
     "build": "next build && node scripts/validate-openai-conversion.cjs",
     "start": "next start",
     "lint": "next lint",
-    "test:conversions": "node --test tests/openai-conversions.test.cjs"
+    "test:conversions": "node --test tests/openai-conversions.test.cjs tests/openai-measurement.test.cjs"
   },
   "dependencies": {
     "framer-motion": "^12.42.2",

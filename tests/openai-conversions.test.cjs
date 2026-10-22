@@ -94,7 +94,7 @@ test('only confirmed email success with consent schedules a conversion', async (
     assert.equal(result.status, emailError ? 500 : 200);
     assert.equal(h.scheduled.length, !emailError && consent ? 1 : 0);
     for (const cb of h.scheduled) await cb();
-    if (!emailError && consent) assert.deepEqual(h.emitted, [[id, true]]);
+    if (!emailError && consent) assert.deepEqual(h.emitted, [[id, true, undefined]]);
   }
 });
 test('invalid submissions never schedule and scheduler failures do not fail delivered quotes', async () => {
@@ -115,4 +115,56 @@ test('server respects Global Privacy Control even when the posted consent is tru
   });
   assert.equal(result.status, 200);
   assert.equal(h.scheduled.length, 0);
+});
+
+
+test('click reference is event-level, preserved verbatim and identical across retries', async () => {
+  process.env.OPENAI_ADS_CONVERSION_API_KEY = 'test-only-placeholder';
+  const reference = 'opaque_Ref+Case/=Token';
+  const id = randomUUID();
+  const payload = quoteConversionPayload(id, true, reference);
+  assert.equal(payload.validate_only, true);
+  assert.equal(payload.events[0].oppref, reference);
+  assert.equal(payload.events[0].user, undefined);
+  const calls=[];
+  global.fetch = async (url, options) => { calls.push(JSON.parse(options.body)); return {ok:calls.length>1,status:503}; };
+  await sendQuoteConversion(id, true, reference);
+  assert.equal(calls.length, 2);
+  assert.deepEqual(calls[0], calls[1]);
+  assert.equal(calls[0].events[0].oppref, reference);
+  assert.equal(calls[0].events[0].user, undefined);
+  for (const bad of ['', ' with-space', 'line\nfeed', 'x'.repeat(4097), 12]) {
+    assert.equal(quoteConversionPayload(id,true,bad).events[0].oppref, undefined);
+  }
+});
+
+test('real handler forwards only consented reference and deduplicates repeated submission IDs', async () => {
+  const h = routeHarness();
+  const id=randomUUID();
+  for (let i=0;i<2;i++) await h.POST({json:async()=>({...validQuote,conversionEventId:id,openaiMeasurementConsent:true,openaiClickReference:'opaque-original'})});
+  for (const cb of h.scheduled) await cb();
+  assert.deepEqual(h.emitted, [[id,true,'opaque-original'],[id,true,'opaque-original']]);
+  const denied = routeHarness();
+  await denied.POST({json:async()=>({...validQuote,openaiMeasurementConsent:false,openaiClickReference:'must-not-send'})});
+  assert.equal(denied.scheduled.length,0);
+});
+
+test('deployment validator sends only validate_only requests, with and without documented reference', async () => {
+  const requests=[];
+  const script=fs.readFileSync(require.resolve('../scripts/validate-openai-conversion.cjs'),'utf8');
+  const pending=vm.runInNewContext(script, {
+    require(name) {
+      if(name==='node:crypto') return {randomUUID};
+      if(name==='./load-conversion-helper.cjs') return loadHelper;
+      throw Error('unexpected import');
+    },
+    process:{env:{OPENAI_ADS_CONVERSION_API_KEY:'test-only-placeholder'}},
+    console:{log(){},error(){}}, AbortSignal,
+    fetch:async(url,options)=>{requests.push(JSON.parse(options.body));return {ok:true,status:200};},
+  });
+  await pending;
+  assert.equal(requests.length,2);
+  for(const p of requests){assert.equal(p.validate_only,true);assert.equal(p.events[0].user,undefined);}
+  assert.equal(requests[0].events[0].oppref,undefined);
+  assert.equal(requests[1].events[0].oppref,'oppref_abc');
 });

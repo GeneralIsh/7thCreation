@@ -1,9 +1,10 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import FadeIn from '@/components/FadeIn';
 import { trackEvent, trackQuoteRequestConversion } from '@/lib/analytics';
 import { getAttribution } from '@/lib/attribution';
+import { chooseMeasurement, MEASUREMENT_CHANGED, quoteMeasurement, readMeasurement } from '@/lib/openai-measurement';
 
 const SERVICE_OPTIONS = [
   'Exhibition / Event Graphics',
@@ -60,6 +61,16 @@ export default function QuotePage() {
   const [submittedEmail, setSubmittedEmail] = useState('');
   const [measurementConsent, setMeasurementConsent] = useState(false);
   const conversionEventId = useRef<string>();
+  useEffect(() => {
+    const sync = () => setMeasurementConsent(readMeasurement().choice === 'granted');
+    sync();
+    window.addEventListener(MEASUREMENT_CHANGED, sync);
+    window.addEventListener('focus', sync);
+    return () => {
+      window.removeEventListener(MEASUREMENT_CHANGED, sync);
+      window.removeEventListener('focus', sync);
+    };
+  }, []);
 
   const set = (field: keyof FormState, value: string) =>
     setForm((f) => ({ ...f, [field]: value }));
@@ -103,8 +114,7 @@ export default function QuotePage() {
           details: form.details,
           ...attribution,
           conversionEventId: conversionEventId.current,
-          openaiMeasurementConsent: measurementConsent &&
-            !(navigator as Navigator & { globalPrivacyControl?: boolean }).globalPrivacyControl,
+          ...quoteMeasurement(),
         }),
       });
 
@@ -385,11 +395,11 @@ export default function QuotePage() {
                         type="checkbox"
                         className="mt-1 accent-blue"
                         checked={measurementConsent}
-                        onChange={(e) => setMeasurementConsent(e.target.checked)}
+                        onChange={(e) => setMeasurementConsent(chooseMeasurement(e.target.checked).choice === 'granted')}
                       />
                       <span>
-                        Allow 7th Creation to measure this completed request with OpenAI Ads (optional).
-                        We share that a request was completed, never your contact details or project information.
+                        Allow session-only OpenAI Ads measurement and link this completed quote to the ad I clicked (optional).
+                        No contact details or project information are shared. Uncheck to withdraw consent.
                       </span>
                     </label>
 

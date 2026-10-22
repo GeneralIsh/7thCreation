@@ -211,9 +211,10 @@ export async function POST(req: NextRequest) {
     const conversionId = quoteEventId(body.conversionEventId);
     const measurementConsent = body.openaiMeasurementConsent === true &&
       req.headers?.get('sec-gpc') !== '1';
+    const clickReference = body.openaiClickReference;
     if (measurementConsent) {
       try {
-        after(() => sendQuoteConversion(conversionId, true));
+        after(() => sendQuoteConversion(conversionId, true, clickReference));
       } catch {
         console.warn('[OpenAI Ads] Unable to schedule conversion delivery.');
       }

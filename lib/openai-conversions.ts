@@ -1,5 +1,10 @@
 import { randomUUID } from 'node:crypto';
 
+function validClickReference(value: unknown): value is string {
+  return typeof value === 'string' && value.length > 0 && value.length <= 4096 &&
+    !/[\u0000-\u0020\u007f]/.test(value);
+}
+
 const PIXEL_ID = '3um9AyoCiPewws32s8N7AP';
 const ENDPOINT = `https://bzr.openai.com/v1/events?pid=${PIXEL_ID}`;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -10,7 +15,7 @@ export function quoteEventId(value: unknown): string {
 }
 
 /** Explicit allowlist: this function cannot accept contact or project fields. */
-export function quoteConversionPayload(eventId: string, validateOnly = false) {
+export function quoteConversionPayload(eventId: string, validateOnly = false, oppref?: unknown) {
   return {
     validate_only: validateOnly,
     events: [{
@@ -20,18 +25,19 @@ export function quoteConversionPayload(eventId: string, validateOnly = false) {
       action_source: 'web',
       source_url: 'https://www.7thcreation.com/quote',
       opt_out: true,
+      ...(validClickReference(oppref) ? { oppref } : {}),
       data: { type: 'customer_action' },
     }],
   };
 }
 
 /** Best effort; a conversion outage must never fail a delivered quote request. */
-export async function sendQuoteConversion(eventId: string, consent: unknown): Promise<void> {
+export async function sendQuoteConversion(eventId: string, consent: unknown, oppref?: unknown): Promise<void> {
   const key = process.env.OPENAI_ADS_CONVERSION_API_KEY;
   if (consent !== true || !key) return;
 
   // The same event and timestamp are retained for the bounded retry.
-  const body = JSON.stringify(quoteConversionPayload(eventId));
+  const body = JSON.stringify(quoteConversionPayload(eventId, false, oppref));
   for (let attempt = 0; attempt < 2; attempt++) {
     try {
       const response = await fetch(ENDPOINT, {
